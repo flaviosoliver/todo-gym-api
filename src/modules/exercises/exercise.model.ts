@@ -11,7 +11,7 @@ export class Exercise {
   name: string;
 
   @Prop({ type: mongoose.Schema.Types.String, required: true })
-  focusMustache: string[];
+  focusMuscle: string[];
 
   @Prop({ type: String, required: true })
   image: string;
