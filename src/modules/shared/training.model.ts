@@ -18,6 +18,9 @@ export class Training {
 
   @Prop({ type: String, required: true })
   notes: string;
+
+  @Prop({ type: Boolean, required: true })
+  done: boolean;
 }
 
 export const TrainingSchema = SchemaFactory.createForClass(Training);
