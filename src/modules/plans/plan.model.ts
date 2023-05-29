@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
-import { Training, TrainingSchema } from '../shared/training.model';
+import { Training, TrainingSchema } from '../shared/models/training.model';
 
 export type PlanDocument = Plan & Document;
 
