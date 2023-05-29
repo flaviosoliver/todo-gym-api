@@ -21,7 +21,10 @@ export class User {
   lastName: string;
 
   @Prop({ type: Date, required: true })
-  birth: Date;
+  birthDate: Date;
+
+  @Prop({ type: Boolean, required: true })
+  active: boolean;
 
   @Prop({ type: [ShapeHistorySchema], required: true })
   shape: ShapeHistory[];
