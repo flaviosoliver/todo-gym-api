@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 import { RoutinesModule } from './routines/routines.module';
 import { ExercisesModule } from './exercises/exercises.module';
 import { UsersModule } from './users/users.module';
@@ -12,14 +13,24 @@ import { AppService } from '../app.service';
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRootAsync({
-      useFactory: () => ({
-        uri: `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_CLUSTER}/?retryWrites=true&w=majority`,
-      }),
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => {
+        const localConnection = configService.get<string>('MONGO_LOCAL');
+        const atlasConnection = configService.get<string>('MONGO_ATLAS');
+        const isLocal = process.env.ENVIRONMENT_LOCAL ?? false;
+        return {
+          uri: isLocal
+            ? `${localConnection}/${process.env.MONGO_DB}`
+            : `${atlasConnection}/${process.env.MONGO_DB}`,
+        };
+      },
+      inject: [ConfigService],
     }),
+    AuthModule,
+    UsersModule,
+    ExercisesModule,
     PlansModule,
     RoutinesModule,
-    ExercisesModule,
-    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
