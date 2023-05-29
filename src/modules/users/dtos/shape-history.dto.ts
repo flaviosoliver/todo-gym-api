@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsDate, IsDefined, IsNotEmpty, IsNumber } from 'class-validator';
+import {
+  IsDate,
+  IsDefined,
+  IsNotEmpty,
+  IsNumber,
+  IsPositive,
+} from 'class-validator';
 
 export class ShapeHistoryDto {
   @ApiProperty()
@@ -10,18 +16,21 @@ export class ShapeHistoryDto {
 
   @ApiProperty()
   @IsNumber()
+  @IsPositive()
   @IsDefined()
   @IsNotEmpty()
   height: number;
 
   @ApiProperty()
   @IsNumber()
+  @IsPositive()
   @IsDefined()
   @IsNotEmpty()
   weight: number;
 
   @ApiProperty()
   @IsNumber()
+  @IsPositive()
   @IsDefined()
   @IsNotEmpty()
   bmi: number;

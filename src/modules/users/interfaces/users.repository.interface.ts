@@ -1,4 +1,4 @@
-import { CreateUserDto, UserDto } from '../dtos/dtos';
+import { CreateUserDto, ShapeHistoryDto, UserDto } from '../dtos/dtos';
 
 export const USERS_REPOSITORY = 'USERS_REPOSITORY';
 
@@ -8,6 +8,7 @@ export interface IUsersRepository {
   getById: (id: string) => Promise<UserDto>;
   getByEmail: (email: string) => Promise<UserDto>;
   update: (id: string, user: UserDto) => Promise<void>;
+  updateShape: (id: string, shape: ShapeHistoryDto) => Promise<void>;
   delete: (id: string) => Promise<void>;
   enable: (id: string) => Promise<void>;
   disable: (id: string) => Promise<void>;

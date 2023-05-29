@@ -9,7 +9,7 @@ import {
   IUsersRepository,
   USERS_REPOSITORY,
 } from './interfaces/users.repository.interface';
-import { CreateUserDto, UserDto } from './dtos/dtos';
+import { CreateUserDto, ShapeHistoryDto, UserDto } from './dtos/dtos';
 import { isEmail, validate } from 'class-validator';
 import { IUsersService } from './interfaces/users.service.interface';
 import { mapUser } from './utils/user.mapper';
@@ -95,6 +95,30 @@ export class UsersService implements IUsersService {
     } catch (error) {
       this.logger.error(error);
       throw new BadRequestException(`Update user id ${id} failed`);
+    }
+  }
+
+  async updateShape(id: string, shape: ShapeHistoryDto): Promise<void> {
+    try {
+      const shapeDto = new ShapeHistoryDto();
+      shapeDto.age = new Date(shape.age);
+      shapeDto.height = shape.height;
+      shapeDto.weight = shape.weight;
+      shapeDto.bmi = shape.bmi;
+      const errors = await validate(shapeDto);
+      if (errors.length > 0) {
+        throw new BadRequestException(errors);
+      }
+
+      const user = this.getById(id);
+      if (user !== undefined) {
+        await this.repository.updateShape(id, shape);
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        this.logger.error(error);
+        throw new BadRequestException(error.message);
+      }
     }
   }
 
