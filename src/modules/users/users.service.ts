@@ -98,27 +98,56 @@ export class UsersService implements IUsersService {
     }
   }
 
-  async updateShape(id: string, shape: ShapeHistoryDto): Promise<void> {
-    try {
-      const shapeDto = new ShapeHistoryDto();
-      shapeDto.age = new Date(shape.age);
-      shapeDto.height = shape.height;
-      shapeDto.weight = shape.weight;
-      shapeDto.bmi = shape.bmi;
-      const errors = await validate(shapeDto);
-      if (errors.length > 0) {
-        throw new BadRequestException(errors);
-      }
+  transformString(arr: any): string {
+    const mergedProps: Record<string, string[]> = {};
 
+    arr.forEach((obj) => {
+      for (const prop in obj) {
+        if (mergedProps[prop]) {
+          mergedProps[prop].push(obj[prop]);
+        } else {
+          mergedProps[prop] = [obj[prop]];
+        }
+      }
+    });
+
+    const result = Object.entries(mergedProps).map(
+      ([prop, messages]) => `${prop}: ${messages.join(', ')}`
+    );
+
+    return result.join('\n');
+  }
+
+  async updateShape(id: string, shape: ShapeHistoryDto): Promise<void> {
+    const shapeHistoryDto = new ShapeHistoryDto();
+    shapeHistoryDto.age = new Date(shape.age);
+    shapeHistoryDto.height = shape.height;
+    shapeHistoryDto.weight = shape.weight;
+    shapeHistoryDto.bmi = shape.bmi;
+
+    const validObj = validate(shapeHistoryDto)
+      .then((errors) => {
+        if (errors.length > 0) {
+          const arr = errors.map((error) => error.constraints);
+          const str = this.transformString(arr);
+          this.logger.error(str);
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .catch((error) => {
+        this.logger.error(error);
+        throw new BadRequestException(error);
+      });
+
+    if ((await validObj) === true) {
       const user = this.getById(id);
       if (user !== undefined) {
         await this.repository.updateShape(id, shape);
       }
-    } catch (error) {
-      if (error instanceof Error) {
-        this.logger.error(error);
-        throw new BadRequestException(error.message);
-      }
+    } else {
+      throw new BadRequestException();
     }
   }
 
