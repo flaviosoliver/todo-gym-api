@@ -5,6 +5,7 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
+import * as bcrypt from 'bcryptjs';
 import {
   IUsersRepository,
   USERS_REPOSITORY,
@@ -62,6 +63,10 @@ export class UsersService implements IUsersService {
     }
   }
 
+  async hashedPassword(password: string): Promise<string> {
+    return await bcrypt.hash(password, 10);
+  }
+
   async create(user: CreateUserDto): Promise<UserDto> {
     try {
       const errors = await validate(user);
@@ -70,6 +75,7 @@ export class UsersService implements IUsersService {
       }
       const existis = await this.getByEmail(user.email);
       if (!existis) {
+        user.password = await this.hashedPassword(user.password);
         return await this.repository.create(user);
       } else {
         throw new BadRequestException(
