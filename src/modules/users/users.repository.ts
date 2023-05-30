@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from './user.model';
-import { CreateUserDto, UserDto } from './dtos/dtos';
+import { CreateUserDto, ShapeHistoryDto, UserDto } from './dtos/dtos';
 import { IUsersRepository } from './interfaces/users.repository.interface';
 
 @Injectable()
@@ -31,6 +31,22 @@ export class UsersRepository implements IUsersRepository {
 
   async update(id: string, user: UserDto): Promise<void> {
     await this.model.updateOne({ _id: id }, user);
+  }
+
+  async updateShape(id: string, shape: ShapeHistoryDto): Promise<void> {
+    await this.model.updateOne(
+      { _id: id },
+      {
+        $push: {
+          shape: {
+            age: shape.age,
+            height: shape.height,
+            weight: shape.weight,
+            bmi: shape.bmi,
+          },
+        },
+      }
+    );
   }
 
   async delete(id: string): Promise<void> {

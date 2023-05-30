@@ -5,11 +5,12 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
+import * as bcrypt from 'bcryptjs';
 import {
   IUsersRepository,
   USERS_REPOSITORY,
 } from './interfaces/users.repository.interface';
-import { CreateUserDto, UserDto } from './dtos/dtos';
+import { CreateUserDto, ShapeHistoryDto, UserDto } from './dtos/dtos';
 import { isEmail, validate } from 'class-validator';
 import { IUsersService } from './interfaces/users.service.interface';
 import { mapUser } from './utils/user.mapper';
@@ -62,6 +63,10 @@ export class UsersService implements IUsersService {
     }
   }
 
+  async hashedPassword(password: string): Promise<string> {
+    return await bcrypt.hash(password, 10);
+  }
+
   async create(user: CreateUserDto): Promise<UserDto> {
     try {
       const errors = await validate(user);
@@ -70,6 +75,7 @@ export class UsersService implements IUsersService {
       }
       const existis = await this.getByEmail(user.email);
       if (!existis) {
+        user.password = await this.hashedPassword(user.password);
         return await this.repository.create(user);
       } else {
         throw new BadRequestException(
@@ -95,6 +101,59 @@ export class UsersService implements IUsersService {
     } catch (error) {
       this.logger.error(error);
       throw new BadRequestException(`Update user id ${id} failed`);
+    }
+  }
+
+  transformString(arr: any): string {
+    const mergedProps: Record<string, string[]> = {};
+
+    arr.forEach((obj) => {
+      for (const prop in obj) {
+        if (mergedProps[prop]) {
+          mergedProps[prop].push(obj[prop]);
+        } else {
+          mergedProps[prop] = [obj[prop]];
+        }
+      }
+    });
+
+    const result = Object.entries(mergedProps).map(
+      ([prop, messages]) => `${prop}: ${messages.join(', ')}`
+    );
+
+    return result.join('\n');
+  }
+
+  async updateShape(id: string, shape: ShapeHistoryDto): Promise<void> {
+    const shapeHistoryDto = new ShapeHistoryDto();
+    shapeHistoryDto.age = new Date(shape.age);
+    shapeHistoryDto.height = shape.height;
+    shapeHistoryDto.weight = shape.weight;
+    shapeHistoryDto.bmi = shape.bmi;
+
+    const validObj = validate(shapeHistoryDto)
+      .then((errors) => {
+        if (errors.length > 0) {
+          const arr = errors.map((error) => error.constraints);
+          const str = this.transformString(arr);
+          this.logger.error(str);
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .catch((error) => {
+        this.logger.error(error);
+        throw new BadRequestException(error);
+      });
+
+    if ((await validObj) === true) {
+      const user = this.getById(id);
+      if (user !== undefined) {
+        await this.repository.updateShape(id, shape);
+      }
+    } else {
+      throw new BadRequestException();
     }
   }
 

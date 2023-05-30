@@ -34,6 +34,7 @@ import { User } from './user.model';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UserDto } from './dtos/user.dto';
 import { IUsersController } from './interfaces/users.controller.interface';
+import { ShapeHistoryDto } from './dtos/dtos';
 
 @Controller('users')
 @ApiTags('users')
@@ -85,6 +86,18 @@ export class UsersController implements IUsersController {
   @ApiOkResponse({ description: OK_200 })
   async update(@Param('id') id: string, @Body() user: UserDto): Promise<void> {
     return await this.service.update(id, user);
+  }
+
+  @Patch(':id/shape-update')
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async updateShape(
+    @Param('id') id: string,
+    @Body() shape: ShapeHistoryDto
+  ): Promise<void> {
+    return await this.service.updateShape(id, shape);
   }
 
   @Patch(':id/enable')

@@ -1,4 +1,4 @@
-import { CreateUserDto, UserDto } from '../dtos/dtos';
+import { CreateUserDto, ShapeHistoryDto, UserDto } from '../dtos/dtos';
 import { User } from '../user.model';
 
 export const USERS_CONTROLLER = 'USERS_CONTROLLER';
@@ -8,6 +8,7 @@ export interface IUsersController {
   getAll: () => Promise<User[]>;
   getByEmail: (email: string) => Promise<UserDto>;
   update: (id: string, user: UserDto) => Promise<void>;
+  updateShape: (id: string, shape: ShapeHistoryDto) => Promise<void>;
   enable: (id: string) => Promise<string>;
   disable: (id: string) => Promise<string>;
 }
