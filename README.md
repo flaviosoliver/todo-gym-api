@@ -2,23 +2,11 @@
   <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFGJ81p2c3lRG25UnHsUQEx1CfP8Kj0s0hyGO1fBUphjT9Uf-MvnXYMiwlCiFNyEGjcm_cpUiT1svgEyhofemEjBrLuKWeSp=w1366-h657" />
 </p>
 
-<p align="center"></p>
-<p align="center"></p>
-
 ## Descrição
 
 API/Back-end da aplicação To-do Gym.
 Uma aplicação web para controle de treinos, rotinas, evolução física e musculação na academia, além de demonstração da execução de exercícios físicos.
 Desenvolvida com TypeScript em [NodeJS](https://nodejs.org/) com o framework [Nest](https://github.com/nestjs/nest).
-
-## Tecnologias Utilizadas
-
-Linguagem: TypeScript
-Back-end: NodeJS
-Framework Node: NestJS
-Banco de Dados: MongoDB
-ODM Mongoose
-Documentação API: Swagger
 
 ### Modelagem de Banco de Dados
 
@@ -32,9 +20,18 @@ Acesse [Diagrams](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit
 
 Acesse [Miro](https://miro.com/app/board/uXjVMJ3Hzc8=/?share_link_id=536868401744)
 
-## Documentação da API com Swagger
+### Documentação da API com Swagger
 
 [https://todo-gym-api.onrender.com/api/](https://todo-gym-api.onrender.com/api/)
+
+## Tecnologias Utilizadas
+
+Linguagem: TypeScript<br />
+Back-end: NodeJS<br />
+Framework Node: NestJS<br />
+Banco de Dados: MongoDB<br />
+ODM Mongoose<br />
+Documentação API: Swagger<br />
 
 ## Instalação
 
