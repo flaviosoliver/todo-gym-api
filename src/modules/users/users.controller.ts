@@ -8,6 +8,7 @@ import {
   Patch,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
@@ -18,10 +19,12 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import {
   IUsersService,
   USERS_SERVICE,
 } from './interfaces/users.service.interface';
+import { IUsersController } from './interfaces/users.controller.interface';
 import {
   BAD_REQUEST_400,
   CREATED_201,
@@ -31,10 +34,7 @@ import {
   UNAUTHORIZED_401,
 } from '../shared/utils/http-response-status.utils';
 import { User } from './user.model';
-import { CreateUserDto } from './dtos/create-user.dto';
-import { UserDto } from './dtos/user.dto';
-import { IUsersController } from './interfaces/users.controller.interface';
-import { ShapeHistoryDto } from './dtos/dtos';
+import { ShapeHistoryDto, UserDto, CreateUserDto } from './dtos/dtos';
 
 @Controller('users')
 @ApiTags('users')
@@ -45,6 +45,7 @@ export class UsersController implements IUsersController {
   ) {}
 
   @Get()
+  @UseGuards(AuthGuard('jwt'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -55,6 +56,7 @@ export class UsersController implements IUsersController {
   }
 
   @Post()
+  @UseGuards(AuthGuard('jwt'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -66,6 +68,7 @@ export class UsersController implements IUsersController {
   }
 
   @Get('email')
+  @UseGuards(AuthGuard('jwt'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -80,6 +83,7 @@ export class UsersController implements IUsersController {
   }
 
   @Patch(':id/update')
+  @UseGuards(AuthGuard('jwt'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -89,6 +93,7 @@ export class UsersController implements IUsersController {
   }
 
   @Patch(':id/shape-update')
+  @UseGuards(AuthGuard('jwt'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -101,6 +106,7 @@ export class UsersController implements IUsersController {
   }
 
   @Patch(':id/enable')
+  @UseGuards(AuthGuard('jwt'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -110,6 +116,7 @@ export class UsersController implements IUsersController {
   }
 
   @Patch(':id/disable')
+  @UseGuards(AuthGuard('jwt'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
