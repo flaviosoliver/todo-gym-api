@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFGJ81p2c3lRG25UnHsUQEx1CfP8Kj0s0hyGO1fBUphjT9Uf-MvnXYMiwlCiFNyEGjcm_cpUiT1svgEyhofemEjBrLuKWeSp=w1366-h657" />
+  <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFGJ81p2c3lRG25UnHsUQEx1CfP8Kj0s0hyGO1fBUphjT9Uf-MvnXYMiwlCiFNyEGjcm_cpUiT1svgEyhofemEjBrLuKWeSp=w1366-h657">
 </p>
 
 ## Descrição
@@ -10,19 +10,23 @@ Desenvolvida com TypeScript em [NodeJS](https://nodejs.org/) com o framework [Ne
 
 ### Modelagem de Banco de Dados
 
-<img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81qeGhkhqaQXxuEhcDHg00K7Yx1zbmD-9joZzIN0dIWzlffEDDU70Ra8RrJ1SctxIcHVej7dlCvDaPz6t95X3FvOOE8-=w1366-h657" />
+<div align="center">
+  <img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81qeGhkhqaQXxuEhcDHg00K7Yx1zbmD-9joZzIN0dIWzlffEDDU70Ra8RrJ1SctxIcHVej7dlCvDaPz6t95X3FvOOE8-=w1366-h657">
+</div>
 
 Acesse [Diagrams](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=to-do_gym#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1INebgsRbgjSd2onzwfBrgx-lUyiCDaGn%26export%3Ddownload)
 
 ### Funcionalidades
 
-<img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81qDfWDqIXNV9OxDu0HyUyt7yZUBtUFREH4fSDYDE12pR9oH5VRRbzeQEAq3YwRocFnG7amuV4q5TJJdGrlaxVohyTqatA=w1366-h657">
+<div align="center">
+  <img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81qDfWDqIXNV9OxDu0HyUyt7yZUBtUFREH4fSDYDE12pR9oH5VRRbzeQEAq3YwRocFnG7amuV4q5TJJdGrlaxVohyTqatA=w1366-h657">
+</div>
 
 Acesse [Miro](https://miro.com/app/board/uXjVMJ3Hzc8=/?share_link_id=536868401744)
 
 ### Documentação da API com Swagger
 
-[https://todo-gym-api.onrender.com/api/](https://todo-gym-api.onrender.com/api/)
+[https://todo-gym-api.onrender.com/swagger/](https://todo-gym-api.onrender.com/swagger/)
 
 ## Tecnologias Utilizadas
 
