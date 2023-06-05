@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
+  ApiBasicAuth,
   ApiBody,
   ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
@@ -46,6 +47,7 @@ export class UsersController implements IUsersController {
 
   @Get()
   @UseGuards(AuthGuard('jwt'))
+  @ApiBasicAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -57,6 +59,7 @@ export class UsersController implements IUsersController {
 
   @Post()
   @UseGuards(AuthGuard('jwt'))
+  @ApiBasicAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -69,6 +72,7 @@ export class UsersController implements IUsersController {
 
   @Get('email')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBasicAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -84,6 +88,7 @@ export class UsersController implements IUsersController {
 
   @Patch(':id/update')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBasicAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -94,6 +99,7 @@ export class UsersController implements IUsersController {
 
   @Patch(':id/shape-update')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBasicAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -107,6 +113,7 @@ export class UsersController implements IUsersController {
 
   @Patch(':id/enable')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBasicAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -117,6 +124,7 @@ export class UsersController implements IUsersController {
 
   @Patch(':id/disable')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBasicAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
