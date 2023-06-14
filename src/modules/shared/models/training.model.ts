@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { ApiProperty } from '@nestjs/swagger';
 import mongoose from 'mongoose';
 
 export type TrainingDocument = Training & Document;
@@ -15,6 +16,10 @@ export class Training {
 
   @Prop({ type: String, required: true })
   repetitions: string;
+
+  @ApiProperty({ description: 'Exercise load/weight' })
+  @Prop({ type: String, required: true })
+  load: string;
 
   @Prop({ type: String, required: true })
   notes: string;
