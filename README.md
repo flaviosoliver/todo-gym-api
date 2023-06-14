@@ -11,10 +11,10 @@ Desenvolvida com TypeScript em [NodeJS](https://nodejs.org/) com o framework [Ne
 ### Modelagem de Banco de Dados
 
 <div align="center">
-  <img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81qeGhkhqaQXxuEhcDHg00K7Yx1zbmD-9joZzIN0dIWzlffEDDU70Ra8RrJ1SctxIcHVej7dlCvDaPz6t95X3FvOOE8-=w1366-h657">
+  <img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81oP45O8jYjlthVtGifmRMU68s4eA7NLxRbJefNG-K1f7d5TE4ZN9LqEfWdimg7diA6mBRTf2Zm1bG045vubz8dqXmaoIw=w1366-h657">
 </div>
 
-Acesse [Diagrams](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=to-do_gym#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1INebgsRbgjSd2onzwfBrgx-lUyiCDaGn%26export%3Ddownload)
+Acesse [Draw IO](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=to-do_gym#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1INebgsRbgjSd2onzwfBrgx-lUyiCDaGn%26export%3Ddownload)
 
 ### Funcionalidades
 
@@ -35,7 +35,10 @@ Back-end: NodeJS<br />
 Framework Node: NestJS<br />
 Banco de Dados: MongoDB<br />
 ODM Mongoose<br />
-Documentação API: Swagger<br />
+Documentação API Rest: Swagger<br />
+Documentação Modular Estática: Compodoc<br />
+Diagramação Banco de Dados: Draw IO
+Desenho de Fluxos: Miro
 
 ## Instalação
 
