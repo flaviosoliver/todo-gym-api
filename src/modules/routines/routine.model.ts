@@ -11,7 +11,7 @@ export class Routine {
   @Prop({ type: String, required: true })
   name: string;
 
-  @Prop({ type: mongoose.Schema.Types.String, required: true })
+  @Prop({ type: [String], required: true })
   focusMuscle: string[];
 
   @Prop({ type: String, required: true })
