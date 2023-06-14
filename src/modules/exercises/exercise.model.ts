@@ -1,28 +1,31 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose from 'mongoose';
+import { ApiProperty } from '@nestjs/swagger';
 
 export type ExerciseDocument = Exercise & Document;
 
 @Schema({ collection: 'exercises', timestamps: true })
 export class Exercise {
+  @ApiProperty({ description: 'Exercise Id' })
   id: string;
 
+  @ApiProperty({ description: 'Exercise Name' })
   @Prop({ type: String, required: true })
   name: string;
 
-  @Prop({ type: mongoose.Schema.Types.String, required: true })
+  @ApiProperty({ description: 'Focus Muscle of Exercise', type: [String] })
+  @Prop({ type: [String], required: true })
   focusMuscle: string[];
 
-  @Prop({ type: String, required: true })
+  @ApiProperty({ description: 'External URL for Exercise Image' })
+  @Prop({ type: String, required: false })
   image: string;
 
-  @Prop({ type: String, required: true })
+  @ApiProperty({ description: 'External URL for Exercise Video' })
+  @Prop({ type: String, required: false })
   video: string;
 
-  @Prop({ type: String, required: true })
-  load: string;
-
-  @Prop({ type: String, required: true })
+  @ApiProperty({ description: 'Info notes to exercise' })
+  @Prop({ type: String, required: false })
   notes: string;
 }
 
