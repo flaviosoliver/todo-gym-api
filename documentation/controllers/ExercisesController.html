@@ -64,25 +64,641 @@
             <code>src/modules/exercises/exercises.controller.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>exercises</code>
+            </p>
 
 
 
 
 
 
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
 
-    </div>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByParams" >findByParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAll" >getAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getById" >getById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(exercise: <a href="../classes/CreateExerciseDto.html" target="_self">CreateExerciseDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: CREATED_201, type: undefined})<br />@ApiBody({type: CreateExerciseDto})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>exercise</td>
+                                    <td>
+                                                <code><a href="../classes/CreateExerciseDto.html" target="_self" >CreateExerciseDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Exercise.html" target="_self" >Promise&lt;Exercise&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByParams"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findByParams</b></span>
+                        <a href="#findByParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByParams(params?: <a href="../classes/ParamsDto.html" target="_self">ParamsDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;search&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ParamsDto.html" target="_self" >ParamsDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;ExerciseDto[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAll"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getAll</b></span>
+                        <a href="#getAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAll()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Exercise.html" target="_self" >Promise&lt;Exercise[]&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getById"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getById</b></span>
+                        <a href="#getById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;ExerciseDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, exercise: <a href="../classes/ExerciseDto.html" target="_self">ExerciseDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/update&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>exercise</td>
+                                    <td>
+                                                <code><a href="../classes/ExerciseDto.html" target="_self" >ExerciseDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">/*
-https://docs.nestjs.com/controllers#controllers
-*/
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Controller,
+  Inject,
+  Get,
+  UseGuards,
+  Param,
+  NotFoundException,
+  Body,
+  Post,
+  Patch,
+  Query,
+} from &#x27;@nestjs/common&#x27;;
+import {
+  ApiBadRequestResponse,
+  ApiBearerAuth,
+  ApiBody,
+  ApiInternalServerErrorResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiTags,
+  ApiUnauthorizedResponse,
+} from &#x27;@nestjs/swagger&#x27;;
+import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
+import {
+  EXERCISES_SERVICE,
+  IExercisesService,
+} from &#x27;./interfaces/exercises.service.interface&#x27;;
+import { IExercisesController } from &#x27;./interfaces/exercises.controller.interface&#x27;;
+import {
+  BAD_REQUEST_400,
+  CREATED_201,
+  NOT_FOUND_404,
+  OK_200,
+  SERVER_ERROR_500,
+  UNAUTHORIZED_401,
+} from &#x27;../shared/utils/http-response-status.utils&#x27;;
+import { Exercise } from &#x27;./exercise.model&#x27;;
+import { ExerciseDto, CreateExerciseDto } from &#x27;./dtos/dtos&#x27;;
+import { ParamsDto } from &#x27;../shared/dtos/params.dto&#x27;;
 
-import { Controller } from &#x27;@nestjs/common&#x27;;
+@Controller(&#x27;exercises&#x27;)
+@ApiTags(&#x27;exercises&#x27;)
+export class ExercisesController implements IExercisesController {
+  constructor(
+    @Inject(EXERCISES_SERVICE)
+    private readonly service: IExercisesService
+  ) {}
 
-@Controller()
-export class ExercisesController {}
+  @Get()
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
+  @ApiOkResponse({ description: OK_200, type: [Exercise] })
+  async getAll(): Promise&lt;Exercise[]&gt; {
+    return await this.service.getAll();
+  }
+
+  @Get(&#x27;search&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
+  @ApiOkResponse({ description: OK_200, type: [ExerciseDto] })
+  async findByParams(@Query() params?: ParamsDto): Promise&lt;ExerciseDto[]&gt; {
+    const exercise &#x3D; await this.service.findByParams(params);
+    if (!exercise || exercise.length &#x3D;&#x3D;&#x3D; 0) {
+      throw new NotFoundException(&#x60;Exercise name ${params} not found&#x60;);
+    }
+    return exercise;
+  }
+
+  @Get(&#x27;:id&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
+  @ApiOkResponse({ description: OK_200, type: [ExerciseDto] })
+  async getById(@Param(&#x27;id&#x27;) id: string): Promise&lt;ExerciseDto&gt; {
+    const exercise &#x3D; await this.service.getById(id);
+    if (!exercise) {
+      throw new NotFoundException(&#x60;Id ${id} not found&#x60;);
+    }
+    return exercise;
+  }
+
+  @Post()
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
+  @ApiOkResponse({ description: CREATED_201, type: [ExerciseDto] })
+  @ApiBody({ type: CreateExerciseDto })
+  async create(@Body() exercise: CreateExerciseDto): Promise&lt;Exercise&gt; {
+    return await this.service.create(exercise);
+  }
+
+  @Patch(&#x27;:id/update&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async update(
+    @Param(&#x27;id&#x27;) id: string,
+    @Body() exercise: ExerciseDto
+  ): Promise&lt;void&gt; {
+    return await this.service.update(id, exercise);
+  }
+}
 </code></pre>
     </div>
 </div>

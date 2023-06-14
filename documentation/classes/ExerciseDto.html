@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Classes</li>
-  <li class="breadcrumb-item" >Routine</li>
+  <li class="breadcrumb-item" >ExerciseDto</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -68,7 +68,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/modules/routines/routine.model.ts</code>
+            <code>src/modules/exercises/dtos/exercise.dto.ts</code>
         </p>
 
 
@@ -90,26 +90,45 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#focusMuscle" >focusMuscle</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
-                                <a href="#frequency" >frequency</a>
-                            </li>
-                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#image" >image</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                 <a href="#name" >name</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
-                                <a href="#training" >training</a>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#notes" >notes</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
-                                <a href="#userId" >userId</a>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#video" >video</a>
                             </li>
                         </ul>
                     </td>
@@ -137,6 +156,9 @@
                     <a name="focusMuscle"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
                         <span ><b>focusMuscle</b></span>
                         <a href="#focusMuscle"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -153,13 +175,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: undefined, required: true})<br />
+                            @ApiProperty()<br />@IsDefined()<br />@IsArray()<br />@ArrayNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/routines/routine.model.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/modules/exercises/dtos/exercise.dto.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -170,11 +192,15 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="frequency"></a>
+                    <a name="id"></a>
                     <span class="name">
                             <span class="modifier"></span>
-                        <span ><b>frequency</b></span>
-                        <a href="#frequency"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -189,13 +215,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty()<br />@IsDefined()<br />@IsNotEmpty()<br />@IsMongoId()<br />@IsString()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/routines/routine.model.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/modules/exercises/dtos/exercise.dto.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -206,10 +232,14 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="id"></a>
+                    <a name="image"></a>
                     <span class="name">
-                        <span ><b>id</b></span>
-                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>image</b></span>
+                        <a href="#image"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -219,9 +249,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />@IsString()<br />@IsUrl()<br />@IsOptional()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/modules/routines/routine.model.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/modules/exercises/dtos/exercise.dto.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -234,6 +273,9 @@
                 <td class="col-md-4">
                     <a name="name"></a>
                     <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>name</b></span>
                         <a href="#name"><span class="icon ion-ios-link"></span></a>
@@ -251,13 +293,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />@IsDefined()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/routines/routine.model.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/modules/exercises/dtos/exercise.dto.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -268,47 +310,13 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="training"></a>
+                    <a name="notes"></a>
                     <span class="name">
                             <span class="modifier"></span>
-                        <span ><b>training</b></span>
-                        <a href="#training"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/Training.html" target="_self" >Training[]</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Prop({type: undefined, required: true})<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/modules/routines/routine.model.ts:28</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="userId"></a>
-                    <span class="name">
                             <span class="modifier"></span>
-                        <span ><b>userId</b></span>
-                        <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier"></span>
+                        <span ><b>notes</b></span>
+                        <a href="#notes"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -323,13 +331,52 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: undefined, required: true, ref: &#x27;Users&#x27;})<br />
+                            @ApiProperty()<br />@IsString()<br />@IsOptional()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/modules/routines/routine.model.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/modules/exercises/dtos/exercise.dto.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="video"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>video</b></span>
+                        <a href="#video"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />@IsString()<br />@IsUrl()<br />@IsOptional()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/modules/exercises/dtos/exercise.dto.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -348,37 +395,55 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
-import mongoose from &#x27;mongoose&#x27;;
-import { Training, TrainingSchema } from &#x27;../shared/models/training.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import {
+  ArrayNotEmpty,
+  IsArray,
+  IsDefined,
+  IsMongoId,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsUrl,
+} from &#x27;class-validator&#x27;;
 
-export type RoutineDocument &#x3D; Routine &amp; Document;
-
-@Schema({ collection: &#x27;routines&#x27;, timestamps: true })
-export class Routine {
+export class ExerciseDto {
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsMongoId()
+  @IsString()
   id: string;
 
-  @Prop({ type: String, required: true })
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  @IsDefined()
   name: string;
 
-  @Prop({ type: [String], required: true })
+  @ApiProperty()
+  @IsDefined()
+  @IsArray()
+  @ArrayNotEmpty()
   focusMuscle: string[];
 
-  @Prop({ type: String, required: true })
-  frequency: string;
+  @ApiProperty()
+  @IsString()
+  @IsUrl()
+  @IsOptional()
+  image: string;
 
-  @Prop({
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: &#x27;Users&#x27;,
-  })
-  userId: string;
+  @ApiProperty()
+  @IsString()
+  @IsUrl()
+  @IsOptional()
+  video: string;
 
-  @Prop({ type: [TrainingSchema], required: true })
-  training: Training[];
+  @ApiProperty()
+  @IsString()
+  @IsOptional()
+  notes: string;
 }
-
-export const RoutineSchema &#x3D; SchemaFactory.createForClass(Routine);
 </code></pre>
     </div>
 </div>
@@ -417,7 +482,7 @@ export const RoutineSchema &#x3D; SchemaFactory.createForClass(Routine);
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Routine.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ExerciseDto.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

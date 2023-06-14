@@ -90,32 +90,40 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#active" >active</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                 <a href="#birthDate" >birthDate</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#email" >email</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#firstName" >firstName</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                 <a href="#lastName" >lastName</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#password" >password</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                 <a href="#shape" >shape</a>
                             </li>
@@ -145,6 +153,7 @@
                     <a name="active"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier"></span>
                         <span ><b>active</b></span>
                         <a href="#active"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -161,13 +170,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: Boolean, required: true})<br />
+                            @ApiProperty({description: &#x27;User activation status&#x27;})<br />@Prop({type: Boolean, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/modules/users/user.model.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/modules/users/user.model.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -180,6 +189,7 @@
                 <td class="col-md-4">
                     <a name="birthDate"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>birthDate</b></span>
                         <a href="#birthDate"><span class="icon ion-ios-link"></span></a>
@@ -197,13 +207,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: Date, required: true})<br />
+                            @ApiProperty({description: &#x27;User birth date&#x27;})<br />@Prop({type: Date, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/modules/users/user.model.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/modules/users/user.model.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -216,6 +226,7 @@
                 <td class="col-md-4">
                     <a name="email"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>email</b></span>
                         <a href="#email"><span class="icon ion-ios-link"></span></a>
@@ -233,13 +244,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;User email&#x27;})<br />@Prop({type: String, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/users/user.model.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/users/user.model.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -252,6 +263,7 @@
                 <td class="col-md-4">
                     <a name="firstName"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>firstName</b></span>
                         <a href="#firstName"><span class="icon ion-ios-link"></span></a>
@@ -269,13 +281,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;User first name&#x27;})<br />@Prop({type: String, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/users/user.model.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/modules/users/user.model.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -288,6 +300,7 @@
                 <td class="col-md-4">
                     <a name="id"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>id</b></span>
                         <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -299,9 +312,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({description: &#x27;User Id&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/modules/users/user.model.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/modules/users/user.model.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -314,6 +336,7 @@
                 <td class="col-md-4">
                     <a name="lastName"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>lastName</b></span>
                         <a href="#lastName"><span class="icon ion-ios-link"></span></a>
@@ -331,13 +354,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;User sur name&#x27;})<br />@Prop({type: String, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/modules/users/user.model.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/modules/users/user.model.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -350,6 +373,7 @@
                 <td class="col-md-4">
                     <a name="password"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>password</b></span>
                         <a href="#password"><span class="icon ion-ios-link"></span></a>
@@ -367,13 +391,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;User password&#x27;})<br />@Prop({type: String, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/users/user.model.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/modules/users/user.model.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -386,6 +410,7 @@
                 <td class="col-md-4">
                     <a name="shape"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>shape</b></span>
                         <a href="#shape"><span class="icon ion-ios-link"></span></a>
@@ -403,13 +428,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: undefined, required: true})<br />
+                            @ApiProperty({description: &#x27;User shape history data&#x27;, type: ShapeHistory})<br />@Prop({type: undefined, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/modules/users/user.model.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/modules/users/user.model.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -431,31 +456,40 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
 import { Document } from &#x27;mongoose&#x27;;
 import { ShapeHistory, ShapeHistorySchema } from &#x27;./shape-history&#x27;;
+import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
 export type UserDocument &#x3D; User &amp; Document;
 
 @Schema({ collection: &#x27;users&#x27;, timestamps: true })
 export class User {
+  @ApiProperty({ description: &#x27;User Id&#x27; })
   id: string;
 
+  @ApiProperty({ description: &#x27;User email&#x27; })
   @Prop({ type: String, required: true })
   email: string;
 
+  @ApiProperty({ description: &#x27;User password&#x27; })
   @Prop({ type: String, required: true })
   password: string;
 
+  @ApiProperty({ description: &#x27;User first name&#x27; })
   @Prop({ type: String, required: true })
   firstName: string;
 
+  @ApiProperty({ description: &#x27;User sur name&#x27; })
   @Prop({ type: String, required: true })
   lastName: string;
 
+  @ApiProperty({ description: &#x27;User birth date&#x27; })
   @Prop({ type: Date, required: true })
   birthDate: Date;
 
+  @ApiProperty({ description: &#x27;User activation status&#x27; })
   @Prop({ type: Boolean, required: true })
   active: boolean;
 
+  @ApiProperty({ description: &#x27;User shape history data&#x27;, type: ShapeHistory })
   @Prop({ type: [ShapeHistorySchema], required: true })
   shape: ShapeHistory[];
 }
