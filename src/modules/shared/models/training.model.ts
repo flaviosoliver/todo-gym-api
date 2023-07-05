@@ -6,14 +6,22 @@ export type TrainingDocument = Training & Document;
 
 @Schema({ timestamps: true })
 export class Training {
+  @ApiProperty({ description: 'Training Id' })
   id: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, required: true })
+  @ApiProperty({ description: 'Exercise Id' })
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Exercises',
+  })
   exerciseId: string;
 
+  @ApiProperty({ description: 'Exercise Series' })
   @Prop({ type: String, required: true })
   series: string;
 
+  @ApiProperty({ description: 'Exercise Repetitions' })
   @Prop({ type: String, required: true })
   repetitions: string;
 
@@ -21,9 +29,11 @@ export class Training {
   @Prop({ type: String, required: true })
   load: string;
 
-  @Prop({ type: String, required: true })
-  notes: string;
+  @ApiProperty({ description: 'Exercise Notes' })
+  @Prop({ type: String, required: false })
+  notes?: string;
 
+  @ApiProperty({ description: 'Exercise Control Done' })
   @Prop({ type: Boolean, required: true })
   done: boolean;
 }

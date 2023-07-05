@@ -100,6 +100,7 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#image" >image</a>
                             </li>
                             <li>
@@ -113,6 +114,7 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#notes" >notes</a>
                             </li>
                             <li>
@@ -120,6 +122,7 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#video" >video</a>
                             </li>
                         </ul>
@@ -190,6 +193,7 @@
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
                         <span ><b>image</b></span>
                         <a href="#image"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -267,6 +271,7 @@
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
                         <span ><b>notes</b></span>
                         <a href="#notes"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -306,6 +311,7 @@
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
                         <span ><b>video</b></span>
                         <a href="#video"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -375,18 +381,18 @@ export class CreateExerciseDto {
   @IsString()
   @IsUrl()
   @IsOptional()
-  image: string;
+  image?: string;
 
   @ApiProperty()
   @IsString()
   @IsUrl()
   @IsOptional()
-  video: string;
+  video?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  notes: string;
+  notes?: string;
 }
 </code></pre>
     </div>

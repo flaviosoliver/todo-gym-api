@@ -34,16 +34,16 @@ export class ExerciseDto {
   @IsString()
   @IsUrl()
   @IsOptional()
-  image: string;
+  image?: string;
 
   @ApiProperty()
   @IsString()
   @IsUrl()
   @IsOptional()
-  video: string;
+  video?: string;
 
   @ApiProperty()
   @IsString()
   @IsOptional()
-  notes: string;
+  notes?: string;
 }

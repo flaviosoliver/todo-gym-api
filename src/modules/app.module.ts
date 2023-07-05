@@ -6,6 +6,7 @@ import { RoutinesModule } from './routines/routines.module';
 import { ExercisesModule } from './exercises/exercises.module';
 import { UsersModule } from './users/users.module';
 import { PlansModule } from './plans/plans.module';
+import { SharedModule } from './shared/shared.module';
 import { AppController } from '../app.controller';
 import { AppService } from '../app.service';
 
@@ -31,6 +32,7 @@ import { AppService } from '../app.service';
     ExercisesModule,
     PlansModule,
     RoutinesModule,
+    SharedModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,8 +1,8 @@
 {
   "name": "todo-gym-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "API da aplicação To-do Gym, construída em NodeJS, utilizando o framework NestJS na linguagem TypeScript",
+  "author": "Flávio Oliveira - https://github.com/flaviosoliver",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

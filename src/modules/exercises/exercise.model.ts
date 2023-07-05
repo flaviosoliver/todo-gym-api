@@ -18,15 +18,15 @@ export class Exercise {
 
   @ApiProperty({ description: 'External URL for Exercise Image' })
   @Prop({ type: String, required: false })
-  image: string;
+  image?: string;
 
   @ApiProperty({ description: 'External URL for Exercise Video' })
   @Prop({ type: String, required: false })
-  video: string;
+  video?: string;
 
   @ApiProperty({ description: 'Info notes to exercise' })
   @Prop({ type: String, required: false })
-  notes: string;
+  notes?: string;
 }
 
 export const ExerciseSchema = SchemaFactory.createForClass(Exercise);
