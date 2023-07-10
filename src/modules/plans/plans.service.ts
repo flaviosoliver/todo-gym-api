@@ -11,19 +11,12 @@ import {
   IPlansRepository,
   PLANS_REPOSITORY,
 } from './interfaces/plans.repository.interface';
-import { PlanDto, CreatePlanDto, UpdatePlanDto } from './dtos/dtos';
+import { PlanDto, CreatePlanDto } from './dtos/dtos';
 import { mapPlan } from './utils/plan.mapper';
-import {
-  EXERCISES_SERVICE,
-  IExercisesService,
-} from '../exercises/interfaces/exercises.service.interface';
 import { ParamsDto } from '../shared/dtos/params.dto';
 import { buildParams } from '../shared/utils/build-params.utils';
 import { Training } from '../shared/models/training.model';
-import { Plan } from './plan.model';
-import { TrainingUpdateDto } from '../shared/dtos/update-training.dto';
 import { TrainingDto } from '../shared/dtos/training.dto';
-import mongoose, { Mongoose } from 'mongoose';
 
 @Injectable()
 export class PlansService implements IPlansService {
@@ -31,9 +24,7 @@ export class PlansService implements IPlansService {
 
   constructor(
     @Inject(PLANS_REPOSITORY)
-    private readonly repository: IPlansRepository,
-    @Inject(EXERCISES_SERVICE)
-    private readonly plansService: IExercisesService
+    private readonly repository: IPlansRepository
   ) {}
 
   async getAll(): Promise<PlanDto[]> {
@@ -108,7 +99,7 @@ export class PlansService implements IPlansService {
   ): Promise<PlanDto> {
     const plan = await this.repository.getById(planId);
     if (!plan) {
-      throw new Error('Plano não encontrado');
+      throw new Error(`Plan id ${planId} not found`);
     }
 
     const updatedTraining = this.updateTraining(plan.training, trainingDto);
@@ -119,28 +110,28 @@ export class PlansService implements IPlansService {
 
   private updateTraining(
     existingTraining: TrainingDto[],
-    newTraining: TrainingDto[]
+    updateTraining: TrainingDto[]
   ): Training[] {
-    const updatedTraining: TrainingDto[] = [...existingTraining];
+    const alteredTraining: TrainingDto[] = [];
 
-    for (const training of newTraining) {
-      const existingExerciseIndex = updatedTraining.findIndex(
-        (item) => item.exerciseId === training.exerciseId
+    for (const training of updateTraining) {
+      const existingTrainingIndex = existingTraining.findIndex(
+        (t) => t.exerciseId.toString() === training.exerciseId
       );
 
-      if (existingExerciseIndex !== -1) {
-        updatedTraining.splice(existingExerciseIndex, 1, {
-          id: updatedTraining[existingExerciseIndex].id,
+      if (existingTrainingIndex !== -1) {
+        existingTraining[existingTrainingIndex] = {
+          id: training.id,
           exerciseId: training.exerciseId,
           series: training.series,
           repetitions: training.repetitions,
           load: training.load,
           notes: training.notes,
           done: training.done,
-        });
+        };
       } else {
-        updatedTraining.push({
-          id: 'generated-id',
+        alteredTraining.push({
+          id: undefined,
           exerciseId: training.exerciseId,
           series: training.series,
           repetitions: training.repetitions,
@@ -151,16 +142,43 @@ export class PlansService implements IPlansService {
       }
     }
 
-    return updatedTraining;
+    return [...existingTraining, ...alteredTraining];
   }
 
-  async updateTrainingData(plan: PlanDto): Promise<void> {
+  async updateExerciseDoneStatus(
+    planId: string,
+    exerciseId: string
+  ): Promise<void> {
     try {
+      const filter = {
+        _id: planId,
+        training: {
+          $elemMatch: {
+            exerciseId: exerciseId,
+          },
+        },
+      };
+
+      const plan = await this.repository.getById(planId);
+
+      if (!plan) {
+        throw new BadRequestException(`Plan id ${planId} not found`);
+      }
+
+      const exerciseExists = await this.repository.getPlanByExerciseId(filter);
+
+      if (!exerciseExists) {
+        throw new BadRequestException(`Exercise id ${exerciseId} not found`);
+      }
+
+      for (const training of plan.training) {
+        if (training.exerciseId.toString() === exerciseId) {
+          await this.repository.updateExerciseDoneStatus(filter);
+        }
+      }
     } catch (error) {
       this.logger.error(error);
-      throw new BadRequestException(
-        `Update training in plan ${plan.id} failed`
-      );
+      throw new BadRequestException(`Update status exercise in plan failed`);
     }
   }
 }

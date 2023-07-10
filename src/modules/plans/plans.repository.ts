@@ -2,7 +2,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { Plan, PlanDocument } from './plan.model';
-import { PlanDto, CreatePlanDto, UpdatePlanDto } from './dtos/dtos';
+import { PlanDto, CreatePlanDto } from './dtos/dtos';
 import { IPlansRepository } from './interfaces/plans.repository.interface';
 import { ParamsDto } from '../shared/dtos/params.dto';
 import { TrainingDto } from '../shared/dtos/training.dto';
@@ -38,18 +38,8 @@ export class PlansRepository implements IPlansRepository {
     return this.model.findByIdAndUpdate(plan.id, plan, { new: true });
   }
 
-  async getPlanByExerciseId(
-    exerciseId: string,
-    userId: string
-  ): Promise<PlanDto[]> {
-    return await this.model.find({
-      $and: [
-        {
-          'training.exerciseId': exerciseId,
-          userId: userId,
-        },
-      ],
-    });
+  async getPlanByExerciseId(filter: any): Promise<PlanDto[]> {
+    return await this.model.findOne(filter);
   }
 
   async addExercise(
@@ -70,22 +60,13 @@ export class PlansRepository implements IPlansRepository {
     });
   }
 
-  // async updateTraining(plan: UpdatePlanDto): Promise<UpdatePlanDto> {
-  //   return this.model
-  //     .findOneAndUpdate(
-  //       {
-  //         $and: [
-  //           {
-  //             _id: plan.id,
-  //             userId: plan.userId,
-  //           },
-  //         ],
-  //       },
-  //       plan,
-  //       { new: true }
-  //     )
-  //     .exec();
-  // }
-  //updateExerciseDone() - alterar campo done no exercício
+  async updateExerciseDoneStatus(filter: any): Promise<void> {
+    await this.model.updateOne(filter, {
+      $set: {
+        'training.$.done': true,
+      },
+    });
+  }
+
   //removeExercise()
 }

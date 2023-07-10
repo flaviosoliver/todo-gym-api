@@ -1,6 +1,5 @@
 import { ParamsDto } from 'src/modules/shared/dtos/params.dto';
-import { PlanDto, CreatePlanDto, UpdatePlanDto } from '../dtos/dtos';
-import { TrainingUpdateDto } from 'src/modules/shared/dtos/update-training.dto';
+import { PlanDto, CreatePlanDto } from '../dtos/dtos';
 import { TrainingDto } from 'src/modules/shared/dtos/training.dto';
 
 export const PLANS_SERVICE = 'PLANS_SERVICE';
@@ -15,4 +14,8 @@ export interface IPlansService {
     planId: string,
     trainingDto: TrainingDto[]
   ) => Promise<PlanDto>;
+  updateExerciseDoneStatus: (
+    planId: string,
+    exerciseId: string
+  ) => Promise<void>;
 }

@@ -26,7 +26,7 @@ import {
   PLANS_SERVICE,
 } from './interfaces/plans.service.interface';
 import { Plan } from './plan.model';
-import { CreatePlanDto, PlanDto, UpdatePlanDto } from './dtos/dtos';
+import { CreatePlanDto, PlanDto } from './dtos/dtos';
 import {
   UNAUTHORIZED_401,
   BAD_REQUEST_400,
@@ -36,12 +36,12 @@ import {
   CREATED_201,
 } from '../shared/utils/http-response-status.utils';
 import { ParamsDto } from '../shared/dtos/params.dto';
-import { TrainingUpdateDto } from '../shared/dtos/update-training.dto';
 import { TrainingDto } from '../shared/dtos/training.dto';
+import { IPlansController } from './interfaces/plans.controller.interface';
 
 @Controller('plans')
 @ApiTags('plans')
-export class PlansController {
+export class PlansController implements IPlansController {
   constructor(
     @Inject(PLANS_SERVICE)
     private readonly service: IPlansService
@@ -127,5 +127,19 @@ export class PlansController {
     @Body() trainingData: TrainingDto[]
   ): Promise<PlanDto> {
     return await this.service.addOrUpdateTraining(id, trainingData);
+  }
+
+  @Patch(':id/doneexercise')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async updateExerciseDoneStatus(
+    @Param('id') id: string,
+    @Body('exerciseId') exerciseId: string
+  ): Promise<void> {
+    return await this.service.updateExerciseDoneStatus(id, exerciseId);
   }
 }
