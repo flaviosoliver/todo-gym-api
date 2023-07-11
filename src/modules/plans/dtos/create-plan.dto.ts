@@ -1,19 +1,20 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
-  ArrayNotEmpty,
-  IsArray,
   IsDefined,
   IsNotEmpty,
-  IsOptional,
   IsString,
-  IsUrl,
+  IsArray,
+  ArrayNotEmpty,
+  IsMongoId,
+  IsOptional,
 } from 'class-validator';
+import { Training } from 'src/modules/shared/models/training.model';
 
-export class CreateExerciseDto {
+export class CreatePlanDto {
   @ApiProperty()
-  @IsString()
-  @IsNotEmpty()
   @IsDefined()
+  @IsNotEmpty()
+  @IsString()
   name: string;
 
   @ApiProperty()
@@ -23,19 +24,14 @@ export class CreateExerciseDto {
   focusMuscle: string[];
 
   @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsMongoId()
   @IsString()
-  @IsUrl()
-  @IsOptional()
-  image?: string;
+  userId: string;
 
   @ApiProperty()
-  @IsString()
-  @IsUrl()
+  @IsArray()
   @IsOptional()
-  video?: string;
-
-  @ApiProperty()
-  @IsString()
-  @IsOptional()
-  notes?: string;
+  training?: [Training];
 }

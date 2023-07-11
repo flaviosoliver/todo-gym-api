@@ -3,17 +3,25 @@ import {
   ArrayNotEmpty,
   IsArray,
   IsDefined,
+  IsMongoId,
   IsNotEmpty,
   IsOptional,
   IsString,
-  IsUrl,
 } from 'class-validator';
+import { Training } from 'src/modules/shared/models/training.model';
 
-export class CreateExerciseDto {
+export class PlanDto {
   @ApiProperty()
-  @IsString()
-  @IsNotEmpty()
   @IsDefined()
+  @IsNotEmpty()
+  @IsMongoId()
+  @IsString()
+  id: string;
+
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
   name: string;
 
   @ApiProperty()
@@ -23,19 +31,14 @@ export class CreateExerciseDto {
   focusMuscle: string[];
 
   @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsMongoId()
   @IsString()
-  @IsUrl()
-  @IsOptional()
-  image?: string;
+  userId: string;
 
   @ApiProperty()
-  @IsString()
-  @IsUrl()
+  @IsArray()
   @IsOptional()
-  video?: string;
-
-  @ApiProperty()
-  @IsString()
-  @IsOptional()
-  notes?: string;
+  training?: Training[];
 }

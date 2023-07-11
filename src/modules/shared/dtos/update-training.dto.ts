@@ -7,7 +7,8 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
-export class TrainingDto {
+
+export class TrainingUpdateDto {
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
@@ -16,29 +17,25 @@ export class TrainingDto {
   id: string;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
+  @IsOptional()
   @IsMongoId()
   @IsString()
-  exerciseId: string;
+  exerciseId?: string;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  series: string;
+  series?: string;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  repetitions: string;
+  repetitions?: string;
 
   @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  load: string;
+  load?: string;
 
   @ApiProperty()
   @IsOptional()
@@ -46,7 +43,7 @@ export class TrainingDto {
   notes?: string;
 
   @ApiProperty()
-  @IsNotEmpty()
+  @IsOptional()
   @IsBoolean()
-  done: boolean;
+  done?: boolean;
 }

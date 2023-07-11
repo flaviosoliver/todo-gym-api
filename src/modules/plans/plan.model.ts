@@ -1,19 +1,24 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import { Training, TrainingSchema } from '../shared/models/training.model';
+import { ApiProperty } from '@nestjs/swagger';
 
 export type PlanDocument = Plan & Document;
 
 @Schema({ collection: 'plans', timestamps: true })
 export class Plan {
+  @ApiProperty({ description: 'Plan Id}' })
   id: string;
 
+  @ApiProperty({ description: 'Plan Name' })
   @Prop({ type: String, required: true })
   name: string;
 
+  @ApiProperty({ description: 'Focus Muscle of Plan', type: [String] })
   @Prop({ type: [String], required: true })
   focusMuscle: string[];
 
+  @ApiProperty({ description: 'User Id who created the plan' })
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -21,8 +26,12 @@ export class Plan {
   })
   userId: string;
 
-  @Prop({ type: [TrainingSchema], required: true })
-  training: Training[];
+  @ApiProperty({
+    description: 'Existing Exercises in the Plan',
+    type: [Training],
+  })
+  @Prop({ type: [TrainingSchema], required: false })
+  training?: Training[];
 }
 
 export const PlanSchema = SchemaFactory.createForClass(Plan);

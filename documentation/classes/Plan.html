@@ -90,20 +90,26 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#focusMuscle" >focusMuscle</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                 <a href="#name" >name</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#training" >training</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                 <a href="#userId" >userId</a>
                             </li>
@@ -133,6 +139,7 @@
                     <a name="focusMuscle"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier"></span>
                         <span ><b>focusMuscle</b></span>
                         <a href="#focusMuscle"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -149,13 +156,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: undefined, required: true})<br />
+                            @ApiProperty({description: &#x27;Focus Muscle of Plan&#x27;, type: undefined})<br />@Prop({type: undefined, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/plans/plan.model.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/modules/plans/plan.model.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -168,6 +175,7 @@
                 <td class="col-md-4">
                     <a name="id"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>id</b></span>
                         <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -179,9 +187,18 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({description: &#x27;Plan Id}&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/modules/plans/plan.model.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/modules/plans/plan.model.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -194,6 +211,7 @@
                 <td class="col-md-4">
                     <a name="name"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>name</b></span>
                         <a href="#name"><span class="icon ion-ios-link"></span></a>
@@ -211,13 +229,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;Plan Name&#x27;})<br />@Prop({type: String, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/plans/plan.model.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/plans/plan.model.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -231,6 +249,8 @@
                     <a name="training"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
                         <span ><b>training</b></span>
                         <a href="#training"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -247,13 +267,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: undefined, required: true})<br />
+                            @ApiProperty({description: &#x27;Existing Exercises in the Plan&#x27;, type: undefined})<br />@Prop({type: undefined, required: false})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/modules/plans/plan.model.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/modules/plans/plan.model.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -266,6 +286,7 @@
                 <td class="col-md-4">
                     <a name="userId"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>userId</b></span>
                         <a href="#userId"><span class="icon ion-ios-link"></span></a>
@@ -283,13 +304,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: undefined, required: true, ref: &#x27;Users&#x27;})<br />
+                            @ApiProperty({description: &#x27;User Id who created the plan&#x27;})<br />@Prop({type: undefined, required: true, ref: &#x27;Users&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/modules/plans/plan.model.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/modules/plans/plan.model.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -311,19 +332,24 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
 import mongoose from &#x27;mongoose&#x27;;
 import { Training, TrainingSchema } from &#x27;../shared/models/training.model&#x27;;
+import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
 export type PlanDocument &#x3D; Plan &amp; Document;
 
 @Schema({ collection: &#x27;plans&#x27;, timestamps: true })
 export class Plan {
+  @ApiProperty({ description: &#x27;Plan Id}&#x27; })
   id: string;
 
+  @ApiProperty({ description: &#x27;Plan Name&#x27; })
   @Prop({ type: String, required: true })
   name: string;
 
+  @ApiProperty({ description: &#x27;Focus Muscle of Plan&#x27;, type: [String] })
   @Prop({ type: [String], required: true })
   focusMuscle: string[];
 
+  @ApiProperty({ description: &#x27;User Id who created the plan&#x27; })
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -331,8 +357,12 @@ export class Plan {
   })
   userId: string;
 
-  @Prop({ type: [TrainingSchema], required: true })
-  training: Training[];
+  @ApiProperty({
+    description: &#x27;Existing Exercises in the Plan&#x27;,
+    type: [Training],
+  })
+  @Prop({ type: [TrainingSchema], required: false })
+  training?: Training[];
 }
 
 export const PlanSchema &#x3D; SchemaFactory.createForClass(Plan);

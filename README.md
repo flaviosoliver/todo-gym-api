@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AFGJ81p2c3lRG25UnHsUQEx1CfP8Kj0s0hyGO1fBUphjT9Uf-MvnXYMiwlCiFNyEGjcm_cpUiT1svgEyhofemEjBrLuKWeSp=w1366-h657">
+  <img src="https://i.postimg.cc/v8LJgYJF/to-do-gym.png">
 </p>
 
 ## Descrição
@@ -11,7 +11,7 @@ Desenvolvida com TypeScript em [NodeJS](https://nodejs.org/) com o framework [Ne
 ### Modelagem de Banco de Dados
 
 <div align="center">
-  <img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81oP45O8jYjlthVtGifmRMU68s4eA7NLxRbJefNG-K1f7d5TE4ZN9LqEfWdimg7diA6mBRTf2Zm1bG045vubz8dqXmaoIw=w1366-h657">
+  <img src="https://i.postimg.cc/jj2gMNdP/to-do-gym-1-drawio.png">
 </div>
 
 Acesse [Draw IO](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=to-do_gym#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1INebgsRbgjSd2onzwfBrgx-lUyiCDaGn%26export%3Ddownload)
@@ -19,7 +19,7 @@ Acesse [Draw IO](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=
 ### Funcionalidades
 
 <div align="center">
-  <img src="https://lh3.googleusercontent.com/drive-viewer/AFGJ81qDfWDqIXNV9OxDu0HyUyt7yZUBtUFREH4fSDYDE12pR9oH5VRRbzeQEAq3YwRocFnG7amuV4q5TJJdGrlaxVohyTqatA=w1366-h657">
+  <img src="https://i.postimg.cc/jqwcwtLq/App-Gym.jpg">
 </div>
 
 Acesse [Miro](https://miro.com/app/board/uXjVMJ3Hzc8=/?share_link_id=536868401744)

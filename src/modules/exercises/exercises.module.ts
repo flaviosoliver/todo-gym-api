@@ -21,5 +21,6 @@ import { ExercisesRepository } from './exercises.repository';
     { useClass: ExercisesService, provide: EXERCISES_SERVICE },
     { useClass: ExercisesRepository, provide: EXERCISES_REPOSITORY },
   ],
+  exports: [EXERCISES_SERVICE, EXERCISES_REPOSITORY],
 })
 export class ExercisesModule {}

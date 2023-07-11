@@ -64,17 +64,17 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_PlansModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="171,-70 171,-195 325,-195 325,-70 171,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="175,-70 175,-195 321,-195 321,-70 175,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_PlansModule_providers</title>
-<polygon fill="none" stroke="black" points="179,-78 179,-130 317,-130 317,-78 179,-78"/>
+<g id="clust3" class="cluster">
+<title>cluster_PlansModule_imports</title>
+<polygon fill="none" stroke="black" points="183,-78 183,-130 313,-130 313,-78 183,-78"/>
 </g>
-<!-- PlansService -->
+<!-- ExercisesModule -->
 <g id="node1" class="node">
-<title>PlansService</title>
-<ellipse fill="#fdb462" stroke="black" cx="248" cy="-104" rx="60.83" ry="18"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">PlansService</text>
+<title>ExercisesModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="304.69,-122 301.69,-126 280.69,-126 277.69,-122 191.31,-122 191.31,-86 304.69,-86 304.69,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">ExercisesModule</text>
 </g>
 <!-- PlansModule -->
 <g id="node2" class="node">
@@ -82,9 +82,9 @@
 <polygon fill="#8dd3c7" stroke="black" points="292.88,-187 289.88,-191 268.88,-191 265.88,-187 203.12,-187 203.12,-151 292.88,-151 292.88,-187"/>
 <text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">PlansModule</text>
 </g>
-<!-- PlansService&#45;&gt;PlansModule -->
+<!-- ExercisesModule&#45;&gt;PlansModule -->
 <g id="edge1" class="edge">
-<title>PlansService&#45;&gt;PlansModule</title>
+<title>ExercisesModule&#45;&gt;PlansModule</title>
 <path fill="none" stroke="black" d="M248,-122.11C248,-122.11 248,-140.99 248,-140.99"/>
 <polygon fill="black" stroke="black" points="244.5,-140.99 248,-150.99 251.5,-140.99 244.5,-140.99"/>
 </g>
@@ -134,21 +134,22 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Providers<a href="https://angular.io/api/core/NgModule#providers" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module providers"><span class="icon ion-ios-information-circle-outline"></a></h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="../injectables/PlansService.html">PlansService</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
                     <h3>Controllers<a href="https://docs.nestjs.com/controllers" target="_blank" rel="noopener noreferrer"
                             title="Official documentation about module controllers"><span
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <a href="../controllers/PlansController.html">PlansController</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../modules/ExercisesModule.html">ExercisesModule</a>
                         </li>
                     </ul>
                 </div>
@@ -161,13 +162,33 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
+import { MongooseModule } from &#x27;@nestjs/mongoose&#x27;;
+import { Plan, PlanSchema } from &#x27;./plan.model&#x27;;
 import { PlansController } from &#x27;./plans.controller&#x27;;
 import { PlansService } from &#x27;./plans.service&#x27;;
+import { PlansRepository } from &#x27;./plans.repository&#x27;;
+import { PLANS_SERVICE } from &#x27;./interfaces/plans.service.interface&#x27;;
+import { PLANS_REPOSITORY } from &#x27;./interfaces/plans.repository.interface&#x27;;
+import { ExercisesModule } from &#x27;../exercises/exercises.module&#x27;;
+import { ExercisesService } from &#x27;../exercises/exercises.service&#x27;;
+import { EXERCISES_SERVICE } from &#x27;../exercises/interfaces/exercises.service.interface&#x27;;
 
 @Module({
-  imports: [],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        name: Plan.name,
+        schema: PlanSchema,
+      },
+    ]),
+    ExercisesModule,
+  ],
   controllers: [PlansController],
-  providers: [PlansService],
+  providers: [
+    { useClass: PlansService, provide: PLANS_SERVICE },
+    { useClass: PlansRepository, provide: PLANS_REPOSITORY },
+    { useClass: ExercisesService, provide: EXERCISES_SERVICE },
+  ],
 })
 export class PlansModule {}
 </code></pre>

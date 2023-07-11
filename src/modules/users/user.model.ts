@@ -34,7 +34,7 @@ export class User {
   @Prop({ type: Boolean, required: true })
   active: boolean;
 
-  @ApiProperty({ description: 'User shape history data', type: ShapeHistory })
+  @ApiProperty({ description: 'User shape history data', type: [ShapeHistory] })
   @Prop({ type: [ShapeHistorySchema], required: true })
   shape: ShapeHistory[];
 }

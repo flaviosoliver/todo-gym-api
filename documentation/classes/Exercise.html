@@ -100,6 +100,7 @@
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#image" >image</a>
                             </li>
                             <li>
@@ -110,11 +111,13 @@
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#notes" >notes</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#video" >video</a>
                             </li>
                         </ul>
@@ -217,6 +220,7 @@
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
                         <span ><b>image</b></span>
                         <a href="#image"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -291,6 +295,7 @@
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
                         <span ><b>notes</b></span>
                         <a href="#notes"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -328,6 +333,7 @@
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
                         <span ><b>video</b></span>
                         <a href="#video"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -389,15 +395,15 @@ export class Exercise {
 
   @ApiProperty({ description: &#x27;External URL for Exercise Image&#x27; })
   @Prop({ type: String, required: false })
-  image: string;
+  image?: string;
 
   @ApiProperty({ description: &#x27;External URL for Exercise Video&#x27; })
   @Prop({ type: String, required: false })
-  video: string;
+  video?: string;
 
   @ApiProperty({ description: &#x27;Info notes to exercise&#x27; })
   @Prop({ type: String, required: false })
-  notes: string;
+  notes?: string;
 }
 
 export const ExerciseSchema &#x3D; SchemaFactory.createForClass(Exercise);

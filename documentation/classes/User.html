@@ -428,7 +428,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;User shape history data&#x27;, type: ShapeHistory})<br />@Prop({type: undefined, required: true})<br />
+                            @ApiProperty({description: &#x27;User shape history data&#x27;, type: undefined})<br />@Prop({type: undefined, required: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -489,7 +489,7 @@ export class User {
   @Prop({ type: Boolean, required: true })
   active: boolean;
 
-  @ApiProperty({ description: &#x27;User shape history data&#x27;, type: ShapeHistory })
+  @ApiProperty({ description: &#x27;User shape history data&#x27;, type: [ShapeHistory] })
   @Prop({ type: [ShapeHistorySchema], required: true })
   shape: ShapeHistory[];
 }
