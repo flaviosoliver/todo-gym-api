@@ -14,8 +14,8 @@ export class PlansRepository implements IPlansRepository {
     readonly model: Model<PlanDocument>
   ) {}
 
-  async getAll(): Promise<PlanDto[]> {
-    return await this.model.find();
+  async getAll(userId: string): Promise<PlanDto[]> {
+    return await this.model.find({ userId: userId });
   }
 
   async getById(id: string): Promise<PlanDto> {

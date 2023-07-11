@@ -9,6 +9,7 @@ import {
   Query,
   UseGuards,
   Patch,
+  Req,
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
@@ -21,6 +22,7 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 import {
   IPlansService,
   PLANS_SERVICE,
@@ -55,8 +57,9 @@ export class PlansController implements IPlansController {
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
   @ApiOkResponse({ description: OK_200, type: [Plan] })
-  async getAll(): Promise<Plan[]> {
-    return await this.service.getAll();
+  async getAll(@Req() request: Request): Promise<Plan[]> {
+    const userId = request.user?.id;
+    return await this.service.getAll(userId);
   }
 
   @Get('search')
@@ -67,7 +70,12 @@ export class PlansController implements IPlansController {
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
   @ApiOkResponse({ description: OK_200, type: [PlanDto] })
-  async findByParams(@Query() params?: ParamsDto): Promise<PlanDto[]> {
+  async findByParams(
+    @Req() request: Request,
+    @Query() params?: ParamsDto
+  ): Promise<PlanDto[]> {
+    const userId = request.user?.id;
+    params.userId = userId;
     const plan = await this.service.findByParams(params);
     if (!plan || plan.length === 0) {
       return;
@@ -100,7 +108,12 @@ export class PlansController implements IPlansController {
   @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
   @ApiOkResponse({ description: CREATED_201, type: [PlanDto] })
   @ApiBody({ type: CreatePlanDto })
-  async create(@Body() plan: CreatePlanDto): Promise<Plan> {
+  async create(
+    @Body() plan: CreatePlanDto,
+    @Req() request: Request
+  ): Promise<Plan> {
+    const userId = request.user?.id;
+    plan.userId = userId;
     return await this.service.create(plan);
   }
 
@@ -111,8 +124,13 @@ export class PlansController implements IPlansController {
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiOkResponse({ description: OK_200 })
-  async update(@Param('id') id: string, @Body() plan: PlanDto): Promise<void> {
-    return await this.service.update(id, plan);
+  async update(
+    @Param('id') id: string,
+    @Body() plan: PlanDto,
+    @Req() request: Request
+  ): Promise<void> {
+    const userId = request.user?.id;
+    return await this.service.update(id, plan, userId);
   }
 
   @Patch(':id/updatetraining')
@@ -124,9 +142,11 @@ export class PlansController implements IPlansController {
   @ApiOkResponse({ description: OK_200 })
   async addOrUpdateTraining(
     @Param('id') id: string,
+    @Req() request: Request,
     @Body() trainingData: TrainingDto[]
   ): Promise<PlanDto> {
-    return await this.service.addOrUpdateTraining(id, trainingData);
+    const userId = request.user?.id;
+    return await this.service.addOrUpdateTraining(id, userId, trainingData);
   }
 
   @Patch(':id/doneexercise')
@@ -138,8 +158,10 @@ export class PlansController implements IPlansController {
   @ApiOkResponse({ description: OK_200 })
   async updateExerciseDoneStatus(
     @Param('id') id: string,
+    @Req() request: Request,
     @Body('exerciseId') exerciseId: string
   ): Promise<void> {
-    return await this.service.updateExerciseDoneStatus(id, exerciseId);
+    const userId = request.user?.id;
+    return await this.service.updateExerciseDoneStatus(id, userId, exerciseId);
   }
 }

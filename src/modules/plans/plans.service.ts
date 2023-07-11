@@ -27,9 +27,9 @@ export class PlansService implements IPlansService {
     private readonly repository: IPlansRepository
   ) {}
 
-  async getAll(): Promise<PlanDto[]> {
+  async getAll(userId: string): Promise<PlanDto[]> {
     try {
-      return await this.repository.getAll();
+      return await this.repository.getAll(userId);
     } catch (error) {
       this.logger.error(error);
     }
@@ -79,13 +79,15 @@ export class PlansService implements IPlansService {
     }
   }
 
-  async update(id: string, plan: PlanDto): Promise<void> {
+  async update(id: string, plan: PlanDto, userId: string): Promise<void> {
     try {
       const result = await this.repository.getById(id);
-      if (result !== undefined) {
+      if (result !== undefined && result.userId.toString() === userId) {
         return await this.repository.update(id, plan);
       } else {
-        throw new NotFoundException(`Plan id ${id} not found`);
+        throw new NotFoundException(
+          `Plan id ${id} not found or does not belongs to the user ${userId}`
+        );
       }
     } catch (error) {
       this.logger.error(error);
@@ -95,17 +97,25 @@ export class PlansService implements IPlansService {
 
   async addOrUpdateTraining(
     planId: string,
+    userId: string,
     trainingDto: TrainingDto[]
   ): Promise<PlanDto> {
-    const plan = await this.repository.getById(planId);
-    if (!plan) {
-      throw new Error(`Plan id ${planId} not found`);
+    try {
+      const plan = await this.repository.getById(planId);
+      if (!plan || plan.userId.toString() !== userId) {
+        throw new NotFoundException(
+          `Plan id ${planId} not found or does not belongs to the user ${userId}`
+        );
+      }
+
+      const updatedTraining = this.updateTraining(plan.training, trainingDto);
+      plan.training = updatedTraining;
+
+      return this.repository.savePlan(plan);
+    } catch (error) {
+      this.logger.error(error);
+      throw new BadRequestException(`Update plan id ${planId} failed`);
     }
-
-    const updatedTraining = this.updateTraining(plan.training, trainingDto);
-    plan.training = updatedTraining;
-
-    return this.repository.savePlan(plan);
   }
 
   private updateTraining(
@@ -147,11 +157,13 @@ export class PlansService implements IPlansService {
 
   async updateExerciseDoneStatus(
     planId: string,
+    userId: string,
     exerciseId: string
   ): Promise<void> {
     try {
       const filter = {
         _id: planId,
+        userId: userId,
         training: {
           $elemMatch: {
             exerciseId: exerciseId,
@@ -162,13 +174,17 @@ export class PlansService implements IPlansService {
       const plan = await this.repository.getById(planId);
 
       if (!plan) {
-        throw new BadRequestException(`Plan id ${planId} not found`);
+        throw new BadRequestException(
+          `Plan id ${planId} not found or does not belongs to the user ${userId}`
+        );
       }
 
       const exerciseExists = await this.repository.getPlanByExerciseId(filter);
 
       if (!exerciseExists) {
-        throw new BadRequestException(`Exercise id ${exerciseId} not found`);
+        throw new BadRequestException(
+          `Exercise id ${exerciseId} not found or plan does not belongs to the current user`
+        );
       }
 
       for (const training of plan.training) {
@@ -178,7 +194,9 @@ export class PlansService implements IPlansService {
       }
     } catch (error) {
       this.logger.error(error);
-      throw new BadRequestException(`Update status exercise in plan failed`);
+      throw new BadRequestException(
+        `Update status exercise in plan ${planId} failed`
+      );
     }
   }
 }

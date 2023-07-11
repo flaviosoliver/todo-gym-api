@@ -5,7 +5,7 @@ import { Plan } from '../plan.model';
 export const PLANS_REPOSITORY = 'PLANS_REPOSITORY';
 
 export interface IPlansRepository {
-  getAll: () => Promise<PlanDto[]>;
+  getAll: (userId: string) => Promise<PlanDto[]>;
   getById: (id: string) => Promise<PlanDto>;
   findByParams: (params?: ParamsDto) => Promise<PlanDto[]>;
   create: (plan: CreatePlanDto) => Promise<PlanDto>;
