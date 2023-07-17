@@ -14,8 +14,10 @@ export class User {
   @Prop({ type: String, required: true })
   email: string;
 
-  @ApiProperty({ description: 'User password' })
-  @Prop({ type: String, required: true })
+  @ApiProperty({
+    description: 'User password, it must be 5 characters or more',
+  })
+  @Prop({ type: String, required: true, minlength: 6 })
   password: string;
 
   @ApiProperty({ description: 'User first name' })

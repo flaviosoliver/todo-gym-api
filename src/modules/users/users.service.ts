@@ -69,10 +69,11 @@ export class UsersService implements IUsersService {
 
   async create(user: CreateUserDto): Promise<UserDto> {
     try {
-      const errors = await validate(user);
-      if (errors.length > 0) {
-        throw new BadRequestException(errors);
-      }
+      validate(user).then((errors) => {
+        if (errors.length > 0) {
+          throw new BadRequestException(errors);
+        }
+      });
       const existis = await this.getByEmail(user.email);
       if (!existis) {
         user.password = await this.hashedPassword(user.password);

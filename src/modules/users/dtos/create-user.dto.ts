@@ -8,6 +8,7 @@ import {
   IsEmail,
   IsNotEmpty,
   IsString,
+  MinLength,
 } from 'class-validator';
 import { ShapeHistoryDto } from './shape-history.dto';
 
@@ -23,6 +24,9 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @IsDefined()
+  @MinLength(6, {
+    message: 'Your password is too short! It must be 5 characters or more!',
+  })
   password: string;
 
   @ApiProperty()
