@@ -7,6 +7,8 @@ async function bootstrap() {
   dotenv.config();
   const app = await NestFactory.create(AppModule);
 
+  const PORT = process.env.PORT || 3000;
+
   const swaggerInfos = {
     description: {
       text: 'API da aplicação To-do Gym, construída em NodeJS, utilizando o framework NestJS na linguagem TypeScript',
@@ -32,6 +34,6 @@ async function bootstrap() {
 
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(3000);
+  await app.listen(PORT);
 }
 bootstrap();

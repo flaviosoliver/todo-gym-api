@@ -102,11 +102,35 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#addOrUpdateTraining" >addOrUpdateTraining</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#create" >create</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#findByParams" >findByParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getAll" >getAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getById" >getById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateExerciseDoneStatus" >updateExerciseDoneStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateTraining" >updateTraining</a>
                             </li>
                         </ul>
                     </td>
@@ -126,12 +150,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(repository: <a href="../interfaces/IPlansRepository.html" target="_self">IPlansRepository</a>, exercisesService: <a href="../interfaces/IExercisesService.html" target="_self">IExercisesService</a>)</code>
+<code>constructor(repository: <a href="../interfaces/IPlansRepository.html" target="_self">IPlansRepository</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/modules/plans/plans.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/modules/plans/plans.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -160,18 +184,6 @@
                                                     </td>
                                                     
                                                 </tr>
-                                                <tr>
-                                                        <td>exercisesService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/IExercisesService.html" target="_self" >IExercisesService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -186,6 +198,101 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addOrUpdateTraining"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>addOrUpdateTraining</b></span>
+                        <a href="#addOrUpdateTraining"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addOrUpdateTraining(planId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, trainingDto: TrainingDto[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:98</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>planId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>trainingDto</td>
+                                    <td>
+                                            <code>TrainingDto[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;PlanDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -208,8 +315,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/modules/plans/plans.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:67</a></div>
                 </td>
             </tr>
 
@@ -261,6 +368,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findByParams"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByParams</b></span>
+                        <a href="#findByParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByParams(params?: <a href="../classes/ParamsDto.html" target="_self">ParamsDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ParamsDto.html" target="_self" >ParamsDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;PlanDto[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getAll"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -272,15 +450,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getAll()</code>
+                    <code>getAll(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/modules/plans/plans.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -289,8 +467,384 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;PlanDto[]&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getById</b></span>
+                        <a href="#getById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;PlanDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, plan: <a href="../classes/PlanDto.html" target="_self">PlanDto</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>plan</td>
+                                    <td>
+                                                <code><a href="../classes/PlanDto.html" target="_self" >PlanDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateExerciseDoneStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateExerciseDoneStatus</b></span>
+                        <a href="#updateExerciseDoneStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateExerciseDoneStatus(planId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, exerciseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>planId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>exerciseId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTraining"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>updateTraining</b></span>
+                        <a href="#updateTraining"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateTraining(existingTraining: TrainingDto[], updateTraining: TrainingDto[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/modules/plans/plans.service.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>existingTraining</td>
+                                    <td>
+                                            <code>TrainingDto[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>updateTraining</td>
+                                    <td>
+                                            <code>TrainingDto[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Training.html" target="_self" >Training[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -322,7 +876,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/modules/plans/plans.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/modules/plans/plans.service.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -340,19 +894,20 @@
   Inject,
   Injectable,
   Logger,
+  NotFoundException,
 } from &#x27;@nestjs/common&#x27;;
+import { validate } from &#x27;class-validator&#x27;;
+import { IPlansService } from &#x27;./interfaces/plans.service.interface&#x27;;
 import {
   IPlansRepository,
   PLANS_REPOSITORY,
 } from &#x27;./interfaces/plans.repository.interface&#x27;;
-import { PlanDto } from &#x27;./dtos/dtos&#x27;;
-import {
-  EXERCISES_SERVICE,
-  IExercisesService,
-} from &#x27;../exercises/interfaces/exercises.service.interface&#x27;;
-import { IPlansService } from &#x27;./interfaces/plans.service.interface&#x27;;
-import { CreatePlanDto } from &#x27;./dtos/create-plan.dto&#x27;;
-import { validate } from &#x27;class-validator&#x27;;
+import { PlanDto, CreatePlanDto } from &#x27;./dtos/dtos&#x27;;
+import { mapPlan } from &#x27;./utils/plan.mapper&#x27;;
+import { ParamsDto } from &#x27;../shared/dtos/params.dto&#x27;;
+import { buildParams } from &#x27;../shared/utils/build-params.utils&#x27;;
+import { Training } from &#x27;../shared/models/training.model&#x27;;
+import { TrainingDto } from &#x27;../shared/dtos/training.dto&#x27;;
 
 @Injectable()
 export class PlansService implements IPlansService {
@@ -360,16 +915,43 @@ export class PlansService implements IPlansService {
 
   constructor(
     @Inject(PLANS_REPOSITORY)
-    private readonly repository: IPlansRepository,
-    @Inject(EXERCISES_SERVICE)
-    private readonly exercisesService: IExercisesService
+    private readonly repository: IPlansRepository
   ) {}
 
-  async getAll(): Promise&lt;PlanDto[]&gt; {
+  async getAll(userId: string): Promise&lt;PlanDto[]&gt; {
     try {
-      return await this.repository.getAll();
+      return await this.repository.getAll(userId);
     } catch (error) {
       this.logger.error(error);
+    }
+  }
+
+  async getById(id: string): Promise&lt;PlanDto&gt; {
+    try {
+      const plan &#x3D; await this.repository.getById(id);
+      if (plan !&#x3D; null || plan !&#x3D;&#x3D; undefined) {
+        return mapPlan(plan);
+      } else {
+        throw new NotFoundException(&#x60;Id ${id} not found&#x60;);
+      }
+    } catch (error) {
+      this.logger.error(error);
+      throw new BadRequestException(&#x60;Invalid id ${id}&#x60;);
+    }
+  }
+
+  async findByParams(params?: ParamsDto): Promise&lt;PlanDto[]&gt; {
+    try {
+      const parameters &#x3D; buildParams(params);
+      let plans &#x3D; await this.repository.findByParams(parameters);
+      if (plans &amp;&amp; plans.length &gt; 0) {
+        return plans.map((item) &#x3D;&gt; mapPlan(item));
+      } else {
+        return (plans &#x3D; []);
+      }
+    } catch (error) {
+      this.logger.error(error);
+      throw new BadRequestException(&#x60;Invalid plan params&#x60;);
     }
   }
 
@@ -385,6 +967,127 @@ export class PlansService implements IPlansService {
         this.logger.error(error);
         throw new BadRequestException(error.message);
       }
+    }
+  }
+
+  async update(id: string, plan: PlanDto, userId: string): Promise&lt;void&gt; {
+    try {
+      const result &#x3D; await this.repository.getById(id);
+      if (result !&#x3D;&#x3D; undefined &amp;&amp; result.userId.toString() &#x3D;&#x3D;&#x3D; userId) {
+        return await this.repository.update(id, plan);
+      } else {
+        throw new NotFoundException(
+          &#x60;Plan id ${id} not found or does not belongs to the user ${userId}&#x60;
+        );
+      }
+    } catch (error) {
+      this.logger.error(error);
+      throw new BadRequestException(&#x60;Update plan id ${id} failed&#x60;);
+    }
+  }
+
+  async addOrUpdateTraining(
+    planId: string,
+    userId: string,
+    trainingDto: TrainingDto[]
+  ): Promise&lt;PlanDto&gt; {
+    try {
+      const plan &#x3D; await this.repository.getById(planId);
+      if (!plan || plan.userId.toString() !&#x3D;&#x3D; userId) {
+        throw new NotFoundException(
+          &#x60;Plan id ${planId} not found or does not belongs to the user ${userId}&#x60;
+        );
+      }
+
+      const updatedTraining &#x3D; this.updateTraining(plan.training, trainingDto);
+      plan.training &#x3D; updatedTraining;
+
+      return this.repository.savePlan(plan);
+    } catch (error) {
+      this.logger.error(error);
+      throw new BadRequestException(&#x60;Update plan id ${planId} failed&#x60;);
+    }
+  }
+
+  private updateTraining(
+    existingTraining: TrainingDto[],
+    updateTraining: TrainingDto[]
+  ): Training[] {
+    const alteredTraining: TrainingDto[] &#x3D; [];
+
+    for (const training of updateTraining) {
+      const existingTrainingIndex &#x3D; existingTraining.findIndex(
+        (t) &#x3D;&gt; t.exerciseId.toString() &#x3D;&#x3D;&#x3D; training.exerciseId
+      );
+
+      if (existingTrainingIndex !&#x3D;&#x3D; -1) {
+        existingTraining[existingTrainingIndex] &#x3D; {
+          id: training.id,
+          exerciseId: training.exerciseId,
+          series: training.series,
+          repetitions: training.repetitions,
+          load: training.load,
+          notes: training.notes,
+          done: training.done,
+        };
+      } else {
+        alteredTraining.push({
+          id: undefined,
+          exerciseId: training.exerciseId,
+          series: training.series,
+          repetitions: training.repetitions,
+          load: training.load,
+          notes: training.notes,
+          done: training.done,
+        });
+      }
+    }
+
+    return [...existingTraining, ...alteredTraining];
+  }
+
+  async updateExerciseDoneStatus(
+    planId: string,
+    userId: string,
+    exerciseId: string
+  ): Promise&lt;void&gt; {
+    try {
+      const filter &#x3D; {
+        _id: planId,
+        userId: userId,
+        training: {
+          $elemMatch: {
+            exerciseId: exerciseId,
+          },
+        },
+      };
+
+      const plan &#x3D; await this.repository.getById(planId);
+
+      if (!plan) {
+        throw new BadRequestException(
+          &#x60;Plan id ${planId} not found or does not belongs to the user ${userId}&#x60;
+        );
+      }
+
+      const exerciseExists &#x3D; await this.repository.getPlanByExerciseId(filter);
+
+      if (!exerciseExists) {
+        throw new BadRequestException(
+          &#x60;Exercise id ${exerciseId} not found or plan does not belongs to the current user&#x60;
+        );
+      }
+
+      for (const training of plan.training) {
+        if (training.exerciseId.toString() &#x3D;&#x3D;&#x3D; exerciseId) {
+          await this.repository.updateExerciseDoneStatus(filter);
+        }
+      }
+    } catch (error) {
+      this.logger.error(error);
+      throw new BadRequestException(
+        &#x60;Update status exercise in plan ${planId} failed&#x60;
+      );
     }
   }
 }

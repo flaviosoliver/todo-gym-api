@@ -18,6 +18,10 @@ export class Plan {
   @Prop({ type: [String], required: true })
   focusMuscle: string[];
 
+  @ApiProperty({ description: 'Validity of plan' })
+  @Prop({ type: Date, required: true })
+  expiresIn?: Date;
+
   @ApiProperty({ description: 'User Id who created the plan' })
   @Prop({
     type: mongoose.Schema.Types.ObjectId,

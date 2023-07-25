@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import {
   ArrayNotEmpty,
   IsArray,
+  IsDate,
   IsDefined,
   IsMongoId,
   IsNotEmpty,
@@ -29,6 +30,11 @@ export class PlanDto {
   @IsArray()
   @ArrayNotEmpty()
   focusMuscle: string[];
+
+  @ApiProperty()
+  @IsOptional()
+  @IsDate()
+  expiresIn?: Date;
 
   @ApiProperty()
   @IsDefined()

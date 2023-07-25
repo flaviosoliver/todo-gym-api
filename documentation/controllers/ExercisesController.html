@@ -651,7 +651,7 @@ export class ExercisesController implements IExercisesController {
   async findByParams(@Query() params?: ParamsDto): Promise&lt;ExerciseDto[]&gt; {
     const exercise &#x3D; await this.service.findByParams(params);
     if (!exercise || exercise.length &#x3D;&#x3D;&#x3D; 0) {
-      throw new NotFoundException(&#x60;Exercise name ${params} not found&#x60;);
+      return;
     }
     return exercise;
   }

@@ -6,6 +6,7 @@ export const mapPlan = (plan: Plan): PlanDto => {
     id: plan.id,
     name: plan.name,
     focusMuscle: plan.focusMuscle,
+    expiresIn: plan.expiresIn,
     userId: plan.userId,
     training: plan.training,
   };
