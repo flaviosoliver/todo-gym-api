@@ -11,7 +11,7 @@ Desenvolvida com TypeScript em [NodeJS](https://nodejs.org/) com o framework [Ne
 ### Modelagem de Banco de Dados
 
 <div align="center">
-  <img src="https://i.postimg.cc/jj2gMNdP/to-do-gym-1-drawio.png">
+  <img src="https://i.postimg.cc/25ndVDPd/to-do-gym-diagram.png">
 </div>
 
 Acesse [Draw IO](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=to-do_gym#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1INebgsRbgjSd2onzwfBrgx-lUyiCDaGn%26export%3Ddownload)
