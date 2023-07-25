@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsArray, IsMongoId, IsOptional } from 'class-validator';
+import {
+  IsString,
+  IsArray,
+  IsMongoId,
+  IsOptional,
+  IsDate,
+} from 'class-validator';
 import { TrainingUpdateDto } from 'src/modules/shared/dtos/update-training.dto';
 
 export class UpdatePlanDto {
@@ -18,6 +24,11 @@ export class UpdatePlanDto {
   @IsOptional()
   @IsArray()
   focusMuscle?: string[];
+
+  @ApiProperty()
+  @IsOptional()
+  @IsDate()
+  expiresIn?: Date;
 
   @ApiProperty()
   @IsOptional()

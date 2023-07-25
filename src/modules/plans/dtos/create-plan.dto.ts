@@ -7,6 +7,7 @@ import {
   ArrayNotEmpty,
   IsMongoId,
   IsOptional,
+  IsDate,
 } from 'class-validator';
 import { Training } from 'src/modules/shared/models/training.model';
 
@@ -22,6 +23,11 @@ export class CreatePlanDto {
   @IsArray()
   @ArrayNotEmpty()
   focusMuscle: string[];
+
+  @ApiProperty()
+  @IsOptional()
+  @IsDate()
+  expiresIn?: Date;
 
   @ApiProperty()
   @IsDefined()
