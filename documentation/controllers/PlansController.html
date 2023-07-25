@@ -97,6 +97,17 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#addOrUpdateTraining" >addOrUpdateTraining</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Async</span>
@@ -112,7 +123,53 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Async</span>
+                                <a href="#findByParams" >findByParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
                                 <a href="#getAll" >getAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getById" >getById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateExerciseDoneStatus" >updateExerciseDoneStatus</a>
                             </li>
                         </ul>
                     </td>
@@ -131,6 +188,115 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addOrUpdateTraining"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>addOrUpdateTraining</b></span>
+                        <a href="#addOrUpdateTraining"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addOrUpdateTraining(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, request: Request, trainingData: TrainingDto[])</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/updatetraining&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/modules/plans/plans.controller.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>trainingData</td>
+                                    <td>
+                                            <code>TrainingDto[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;PlanDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -155,7 +321,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(plan: <a href="../classes/CreatePlanDto.html" target="_self">CreatePlanDto</a>)</code>
+                    <code>create(plan: <a href="../classes/CreatePlanDto.html" target="_self">CreatePlanDto</a>, request: Request)</code>
                 </td>
             </tr>
 
@@ -169,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/modules/plans/plans.controller.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/modules/plans/plans.controller.ts:111</a></div>
                 </td>
             </tr>
 
@@ -202,6 +368,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -209,6 +387,104 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/Plan.html" target="_self" >Promise&lt;Plan&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByParams"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findByParams</b></span>
+                        <a href="#findByParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByParams(request: Request, params?: <a href="../classes/ParamsDto.html" target="_self">ParamsDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;search&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/modules/plans/plans.controller.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ParamsDto.html" target="_self" >ParamsDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;PlanDto[]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -241,7 +517,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getAll()</code>
+                    <code>getAll(request: Request)</code>
                 </td>
             </tr>
 
@@ -255,8 +531,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/modules/plans/plans.controller.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/modules/plans/plans.controller.ts:60</a></div>
                 </td>
             </tr>
 
@@ -265,8 +541,344 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/Plan.html" target="_self" >Promise&lt;Plan[]&gt;</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getById"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getById</b></span>
+                        <a href="#getById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/modules/plans/plans.controller.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;PlanDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, plan: <a href="../classes/PlanDto.html" target="_self">PlanDto</a>, request: Request)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/update&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/modules/plans/plans.controller.ts:127</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>plan</td>
+                                    <td>
+                                                <code><a href="../classes/PlanDto.html" target="_self" >PlanDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateExerciseDoneStatus"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateExerciseDoneStatus</b></span>
+                        <a href="#updateExerciseDoneStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateExerciseDoneStatus(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, request: Request, exerciseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/doneexercise&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">src/modules/plans/plans.controller.ts:159</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>exerciseId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -276,7 +888,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Inject, Post, UseGuards } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Body,
+  Controller,
+  Get,
+  Inject,
+  NotFoundException,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+  Patch,
+  Req,
+} from &#x27;@nestjs/common&#x27;;
 import {
   ApiBadRequestResponse,
   ApiBearerAuth,
@@ -287,12 +911,14 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from &#x27;@nestjs/swagger&#x27;;
+import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
+import { Request } from &#x27;express&#x27;;
 import {
   IPlansService,
   PLANS_SERVICE,
 } from &#x27;./interfaces/plans.service.interface&#x27;;
 import { Plan } from &#x27;./plan.model&#x27;;
-import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
+import { CreatePlanDto, PlanDto } from &#x27;./dtos/dtos&#x27;;
 import {
   UNAUTHORIZED_401,
   BAD_REQUEST_400,
@@ -301,12 +927,13 @@ import {
   OK_200,
   CREATED_201,
 } from &#x27;../shared/utils/http-response-status.utils&#x27;;
-import { CreatePlanDto } from &#x27;./dtos/create-plan.dto&#x27;;
-import { PlanDto } from &#x27;./dtos/plan.dto&#x27;;
+import { ParamsDto } from &#x27;../shared/dtos/params.dto&#x27;;
+import { TrainingDto } from &#x27;../shared/dtos/training.dto&#x27;;
+import { IPlansController } from &#x27;./interfaces/plans.controller.interface&#x27;;
 
 @Controller(&#x27;plans&#x27;)
 @ApiTags(&#x27;plans&#x27;)
-export class PlansController {
+export class PlansController implements IPlansController {
   constructor(
     @Inject(PLANS_SERVICE)
     private readonly service: IPlansService
@@ -320,8 +947,46 @@ export class PlansController {
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
   @ApiOkResponse({ description: OK_200, type: [Plan] })
-  async getAll(): Promise&lt;Plan[]&gt; {
-    return await this.service.getAll();
+  async getAll(@Req() request: Request): Promise&lt;Plan[]&gt; {
+    const userId &#x3D; request.user?.id;
+    return await this.service.getAll(userId);
+  }
+
+  @Get(&#x27;search&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
+  @ApiOkResponse({ description: OK_200, type: [PlanDto] })
+  async findByParams(
+    @Req() request: Request,
+    @Query() params?: ParamsDto
+  ): Promise&lt;PlanDto[]&gt; {
+    const userId &#x3D; request.user?.id;
+    params.userId &#x3D; userId;
+    const plan &#x3D; await this.service.findByParams(params);
+    if (!plan || plan.length &#x3D;&#x3D;&#x3D; 0) {
+      return;
+    }
+    return plan;
+  }
+
+  @Get(&#x27;:id&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
+  @ApiOkResponse({ description: OK_200, type: [PlanDto] })
+  async getById(@Param(&#x27;id&#x27;) id: string): Promise&lt;PlanDto&gt; {
+    const plan &#x3D; await this.service.getById(id);
+    if (!plan) {
+      throw new NotFoundException(&#x60;Id ${id} not found&#x60;);
+    }
+    return plan;
   }
 
   @Post()
@@ -333,8 +998,61 @@ export class PlansController {
   @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
   @ApiOkResponse({ description: CREATED_201, type: [PlanDto] })
   @ApiBody({ type: CreatePlanDto })
-  async create(@Body() plan: CreatePlanDto): Promise&lt;Plan&gt; {
+  async create(
+    @Body() plan: CreatePlanDto,
+    @Req() request: Request
+  ): Promise&lt;Plan&gt; {
+    const userId &#x3D; request.user?.id;
+    plan.userId &#x3D; userId;
     return await this.service.create(plan);
+  }
+
+  @Patch(&#x27;:id/update&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async update(
+    @Param(&#x27;id&#x27;) id: string,
+    @Body() plan: PlanDto,
+    @Req() request: Request
+  ): Promise&lt;void&gt; {
+    const userId &#x3D; request.user?.id;
+    return await this.service.update(id, plan, userId);
+  }
+
+  @Patch(&#x27;:id/updatetraining&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async addOrUpdateTraining(
+    @Param(&#x27;id&#x27;) id: string,
+    @Req() request: Request,
+    @Body() trainingData: TrainingDto[]
+  ): Promise&lt;PlanDto&gt; {
+    const userId &#x3D; request.user?.id;
+    return await this.service.addOrUpdateTraining(id, userId, trainingData);
+  }
+
+  @Patch(&#x27;:id/doneexercise&#x27;)
+  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async updateExerciseDoneStatus(
+    @Param(&#x27;id&#x27;) id: string,
+    @Req() request: Request,
+    @Body(&#x27;exerciseId&#x27;) exerciseId: string
+  ): Promise&lt;void&gt; {
+    const userId &#x3D; request.user?.id;
+    return await this.service.updateExerciseDoneStatus(id, userId, exerciseId);
   }
 }
 </code></pre>

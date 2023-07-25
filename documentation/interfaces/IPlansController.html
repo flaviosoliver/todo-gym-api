@@ -47,7 +47,7 @@
   <li class="breadcrumb-item">Interfaces</li>
   <li class="breadcrumb-item"
   >
-  IPlansRepository</li>
+  IPlansController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -71,7 +71,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/modules/plans/interfaces/plans.repository.interface.ts</code>
+            <code>src/modules/plans/interfaces/plans.controller.interface.ts</code>
         </p>
 
 
@@ -89,6 +89,12 @@
                     <tr>
                         <td class="col-md-4">
                             <ul class="index-list">
+                                <li>
+                                        <a href="#addOrUpdateTraining" 
+>
+                                            addOrUpdateTraining
+                                        </a>
+                                </li>
                                 <li>
                                         <a href="#create" 
 >
@@ -114,18 +120,6 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#getPlanByExerciseId" 
->
-                                            getPlanByExerciseId
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#savePlan" 
->
-                                            savePlan
-                                        </a>
-                                </li>
-                                <li>
                                         <a href="#update" 
 >
                                             update
@@ -148,6 +142,39 @@
 
             <section data-compodoc="block-properties">
                 <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="addOrUpdateTraining"></a>
+                                        <span class="name "><b>addOrUpdateTraining</b>
+                                            <a href="#addOrUpdateTraining">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>addOrUpdateTraining:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
@@ -284,72 +311,6 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="getPlanByExerciseId"></a>
-                                        <span class="name "><b>getPlanByExerciseId</b>
-                                            <a href="#getPlanByExerciseId">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>getPlanByExerciseId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="savePlan"></a>
-                                        <span class="name "><b>savePlan</b>
-                                            <a href="#savePlan">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>savePlan:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
                                         <a name="update"></a>
                                         <span class="name "><b>update</b>
                                             <a href="#update">
@@ -417,21 +378,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ParamsDto } from &#x27;src/modules/shared/dtos/params.dto&#x27;;
-import { PlanDto, CreatePlanDto } from &#x27;../dtos/dtos&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Request } from &#x27;express&#x27;;
+import { TrainingDto } from &#x27;src/modules/shared/dtos/training.dto&#x27;;
+import { CreatePlanDto, PlanDto } from &#x27;../dtos/dtos&#x27;;
 import { Plan } from &#x27;../plan.model&#x27;;
+import { ParamsDto } from &#x27;src/modules/shared/dtos/params.dto&#x27;;
 
-export const PLANS_REPOSITORY &#x3D; &#x27;PLANS_REPOSITORY&#x27;;
+export const PLANS_CONTROLLER &#x3D; &#x27;PLANS_CONTROLLER&#x27;;
 
-export interface IPlansRepository {
-  getAll: (userId: string) &#x3D;&gt; Promise&lt;PlanDto[]&gt;;
+export interface IPlansController {
+  getAll: (request: Request) &#x3D;&gt; Promise&lt;Plan[]&gt;;
+  findByParams: (request: Request, params?: ParamsDto) &#x3D;&gt; Promise&lt;PlanDto[]&gt;;
   getById: (id: string) &#x3D;&gt; Promise&lt;PlanDto&gt;;
-  findByParams: (params?: ParamsDto) &#x3D;&gt; Promise&lt;PlanDto[]&gt;;
-  create: (plan: CreatePlanDto) &#x3D;&gt; Promise&lt;PlanDto&gt;;
-  update: (id: string, plan: PlanDto) &#x3D;&gt; Promise&lt;void&gt;;
-  getPlanByExerciseId: (filter: any) &#x3D;&gt; Promise&lt;PlanDto[]&gt;;
-  savePlan: (plan: Plan) &#x3D;&gt; Promise&lt;Plan&gt;;
-  updateExerciseDoneStatus: (filter: any) &#x3D;&gt; Promise&lt;void&gt;;
+  create: (plan: CreatePlanDto, request: Request) &#x3D;&gt; Promise&lt;Plan&gt;;
+  update: (id: string, plan: PlanDto, request: Request) &#x3D;&gt; Promise&lt;void&gt;;
+  addOrUpdateTraining: (
+    id: string,
+    request: Request,
+    trainingData: TrainingDto[]
+  ) &#x3D;&gt; Promise&lt;PlanDto&gt;;
+  updateExerciseDoneStatus: (
+    id: string,
+    request: Request,
+    exerciseId: string
+  ) &#x3D;&gt; Promise&lt;void&gt;;
 }
 </code></pre>
     </div>
@@ -470,7 +440,7 @@ export interface IPlansRepository {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IPlansRepository.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'IPlansController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -100,6 +100,12 @@
                             <a href="#mapExercise" title="src/modules/exercises/utils/exercise.mapper.ts" ><b>mapExercise</b>&nbsp;&nbsp;&nbsp;(src/.../exercise.mapper.ts)</a>
                         </li>
                         <li>
+                            <a href="#mapPlan" title="src/modules/plans/utils/plan.mapper.ts" ><b>mapPlan</b>&nbsp;&nbsp;&nbsp;(src/.../plan.mapper.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#mapTrainings" title="src/modules/shared/utils/training.mapper.ts" ><b>mapTrainings</b>&nbsp;&nbsp;&nbsp;(src/.../training.mapper.ts)</a>
+                        </li>
+                        <li>
                             <a href="#mapUser" title="src/modules/users/utils/user.mapper.ts" ><b>mapUser</b>&nbsp;&nbsp;&nbsp;(src/.../user.mapper.ts)</a>
                         </li>
                         <li>
@@ -470,6 +476,10 @@
                         <i>Default value : </i><code>(params?: ParamsDto): any &#x3D;&gt; {
   const opt: any &#x3D; { $or: [] };
 
+  if (params &amp;&amp; params.userId) {
+    opt.$or.push({ userId: params.userId });
+  }
+
   if (params &amp;&amp; params.name) {
     opt.$or.push({ name: { $regex: params.name, $options: &#x27;i&#x27; } });
   }
@@ -650,6 +660,71 @@
     image: exercise.image,
     video: exercise.video,
     notes: exercise.notes,
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/modules/plans/utils/plan.mapper.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapPlan"></a>
+                    <span class="name">
+                        <span ><b>mapPlan</b></span>
+                        <a href="#mapPlan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(plan: Plan): PlanDto &#x3D;&gt; {
+  return &lt;PlanDto&gt;{
+    id: plan.id,
+    name: plan.name,
+    focusMuscle: plan.focusMuscle,
+    expiresIn: plan.expiresIn,
+    userId: plan.userId,
+    training: plan.training,
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/modules/shared/utils/training.mapper.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapTrainings"></a>
+                    <span class="name">
+                        <span ><b>mapTrainings</b></span>
+                        <a href="#mapTrainings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(training: Training): TrainingDto &#x3D;&gt; {
+  return &lt;TrainingDto&gt;{
+    id: training.id,
+    exerciseId: training.exerciseId,
+    series: training.series,
+    repetitions: training.repetitions,
+    load: training.load,
+    done: training.done,
+    notes: training.notes,
   };
 }</code>
                     </td>
