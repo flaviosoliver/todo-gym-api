@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './modules/app.module';
 import * as dotenv from 'dotenv';
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 
 async function bootstrap() {
   dotenv.config();
@@ -19,6 +20,15 @@ async function bootstrap() {
       email: 'flavsoliver@gmail.com',
     },
   };
+
+  const corsOptions: CorsOptions = {
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  };
+
+  app.enableCors(corsOptions);
 
   const config = new DocumentBuilder()
     .setTitle('To-do Gym')
