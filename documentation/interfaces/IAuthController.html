@@ -144,12 +144,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { LoginDto } from &#x27;../dtos/dtos&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthDto, LoginDto } from &#x27;../dtos/dtos&#x27;;
 
 export const AUTH_CONTROLLER &#x3D; &#x27;AUTH_CONTROLLER&#x27;;
 
 export interface IAuthController {
-  login: (doc: LoginDto) &#x3D;&gt; Promise&lt;string&gt;;
+  login: (doc: LoginDto) &#x3D;&gt; Promise&lt;AuthDto&gt;;
 }
 </code></pre>
     </div>

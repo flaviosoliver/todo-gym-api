@@ -40,7 +40,7 @@ export class AuthService implements IAuthService {
     return this.jwtService.verify(token);
   }
 
-  async login(email: string, password: string): Promise<string> {
+  async login(email: string, password: string): Promise<AuthDto> {
     try {
       const user = await this.usersService.getByEmail(email);
 
@@ -59,13 +59,14 @@ export class AuthService implements IAuthService {
       const token = this.generateToken(user);
 
       const doc: AuthDto = {
+        userId: user.id,
         email: user.email,
         token: token,
       };
 
       await this.repository.create(doc);
 
-      return token;
+      return doc;
     } catch (error) {
       this.logger.error(error);
       throw new BadRequestException();

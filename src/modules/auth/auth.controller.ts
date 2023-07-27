@@ -20,7 +20,7 @@ import {
   OK_200,
 } from '../shared/utils/http-response-status.utils';
 import { UserDto } from '../users/dtos/dtos';
-import { LoginDto } from './dtos/dtos';
+import { AuthDto, LoginDto } from './dtos/dtos';
 
 @Controller('auth')
 @ApiTags('auth')
@@ -36,7 +36,7 @@ export class AuthController implements IAuthController {
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
   @ApiOkResponse({ description: OK_200, type: UserDto })
-  async login(@Body() doc: LoginDto): Promise<string> {
+  async login(@Body() doc: LoginDto): Promise<AuthDto> {
     const { email, password } = doc;
     return await this.service.login(email, password);
   }

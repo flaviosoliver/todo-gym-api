@@ -90,11 +90,17 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#email" >email</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#token" >token</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#userId" >userId</a>
                             </li>
                         </ul>
                     </td>
@@ -122,6 +128,7 @@
                     <a name="email"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier"></span>
                         <span ><b>email</b></span>
                         <a href="#email"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -138,13 +145,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;User email&#x27;})<br />@Prop({type: String, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/modules/auth/auth.model.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/modules/auth/auth.model.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -157,6 +164,7 @@
                 <td class="col-md-4">
                     <a name="token"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>token</b></span>
                         <a href="#token"><span class="icon ion-ios-link"></span></a>
@@ -174,13 +182,49 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;User token&#x27;})<br />@Prop({type: String, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/auth/auth.model.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/auth/auth.model.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userId"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>userId</b></span>
+                        <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({description: &#x27;User Id}&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/modules/auth/auth.model.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -200,15 +244,21 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
+import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { Document } from &#x27;mongoose&#x27;;
 
 export type AuthDocument &#x3D; Auth &amp; Document;
 
 @Schema({ collection: &#x27;auth&#x27;, timestamps: true })
 export class Auth {
+  @ApiProperty({ description: &#x27;User Id}&#x27; })
+  userId: string;
+
+  @ApiProperty({ description: &#x27;User email&#x27; })
   @Prop({ type: String, required: true })
   email: string;
 
+  @ApiProperty({ description: &#x27;User token&#x27; })
   @Prop({ type: String, required: true })
   token: string;
 }

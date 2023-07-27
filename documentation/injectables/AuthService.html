@@ -342,7 +342,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;AuthDto&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -502,7 +502,7 @@ export class AuthService implements IAuthService {
     return this.jwtService.verify(token);
   }
 
-  async login(email: string, password: string): Promise&lt;string&gt; {
+  async login(email: string, password: string): Promise&lt;AuthDto&gt; {
     try {
       const user &#x3D; await this.usersService.getByEmail(email);
 
@@ -521,13 +521,14 @@ export class AuthService implements IAuthService {
       const token &#x3D; this.generateToken(user);
 
       const doc: AuthDto &#x3D; {
+        userId: user.id,
         email: user.email,
         token: token,
       };
 
       await this.repository.create(doc);
 
-      return token;
+      return doc;
     } catch (error) {
       this.logger.error(error);
       throw new BadRequestException();

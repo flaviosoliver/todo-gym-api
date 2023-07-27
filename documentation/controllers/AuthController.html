@@ -190,7 +190,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;AuthDto&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -226,7 +226,7 @@ import {
   OK_200,
 } from &#x27;../shared/utils/http-response-status.utils&#x27;;
 import { UserDto } from &#x27;../users/dtos/dtos&#x27;;
-import { LoginDto } from &#x27;./dtos/dtos&#x27;;
+import { AuthDto, LoginDto } from &#x27;./dtos/dtos&#x27;;
 
 @Controller(&#x27;auth&#x27;)
 @ApiTags(&#x27;auth&#x27;)
@@ -242,7 +242,7 @@ export class AuthController implements IAuthController {
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiInternalServerErrorResponse({ description: SERVER_ERROR_500 })
   @ApiOkResponse({ description: OK_200, type: UserDto })
-  async login(@Body() doc: LoginDto): Promise&lt;string&gt; {
+  async login(@Body() doc: LoginDto): Promise&lt;AuthDto&gt; {
     const { email, password } &#x3D; doc;
     return await this.service.login(email, password);
   }
