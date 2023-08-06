@@ -8,6 +8,7 @@ import {
   IsEmail,
   IsMongoId,
   IsNotEmpty,
+  IsOptional,
   IsString,
 } from 'class-validator';
 import { ShapeHistory } from '../shape-history';
@@ -62,4 +63,9 @@ export class UserDto {
   @IsArray()
   @ArrayNotEmpty()
   shape: ShapeHistory[];
+
+  @ApiProperty()
+  @IsOptional()
+  @IsString()
+  avatar?: string;
 }

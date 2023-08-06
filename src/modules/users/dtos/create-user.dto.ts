@@ -7,6 +7,7 @@ import {
   IsDefined,
   IsEmail,
   IsNotEmpty,
+  IsOptional,
   IsString,
   MinLength,
 } from 'class-validator';
@@ -58,4 +59,9 @@ export class CreateUserDto {
   @IsArray()
   @ArrayNotEmpty()
   shape: ShapeHistoryDto[];
+
+  @ApiProperty()
+  @IsOptional()
+  @IsString()
+  avatar?: string;
 }
