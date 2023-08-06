@@ -24,7 +24,11 @@ Acesse [Draw IO](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=
 
 Acesse [Miro](https://miro.com/app/board/uXjVMJ3Hzc8=/?share_link_id=536868401744)
 
-### Documentação da API com Swagger
+### Documentação Modular Estática
+
+Documentação de estrutura da aplicação gerada com [Compodoc](https://compodoc.app/)
+
+### Documentação de Endpoints com Swagger
 
 [https://todo-gym-api.onrender.com/swagger/](https://todo-gym-api.onrender.com/swagger/)
 
