@@ -1,5 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+// import * as express from 'express';
+// import * as path from 'path';
 import { AppModule } from './modules/app.module';
 import * as dotenv from 'dotenv';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
@@ -29,6 +31,7 @@ async function bootstrap() {
   };
 
   app.enableCors(corsOptions);
+  // app.use(express.static(path.join(__dirname, '../docs/index.html')));
 
   const config = new DocumentBuilder()
     .setTitle('To-do Gym')
