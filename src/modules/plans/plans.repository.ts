@@ -6,6 +6,7 @@ import { PlanDto, CreatePlanDto } from './dtos/dtos';
 import { IPlansRepository } from './interfaces/plans.repository.interface';
 import { ParamsDto } from '../shared/dtos/params.dto';
 import { TrainingDto } from '../shared/dtos/training.dto';
+import { exerciseDataPipeline } from './pipelines/exercise-data.pipeline';
 
 @Injectable()
 export class PlansRepository implements IPlansRepository {
@@ -15,11 +16,19 @@ export class PlansRepository implements IPlansRepository {
   ) {}
 
   async getAll(userId: string): Promise<PlanDto[]> {
-    return await this.model.find({ userId: userId });
+    const pipeline = exerciseDataPipeline('userId', userId);
+    const result = await this.model
+      .aggregate<PlanDto>(pipeline)
+      .allowDiskUse(false);
+    return result;
   }
 
   async getById(id: string): Promise<PlanDto> {
-    return await this.model.findById(id);
+    const pipeline = exerciseDataPipeline('_id', id);
+    const result = await this.model
+      .aggregate<PlanDto>(pipeline)
+      .allowDiskUse(false);
+    return result[0];
   }
 
   async findByParams(params: ParamsDto): Promise<PlanDto[]> {
