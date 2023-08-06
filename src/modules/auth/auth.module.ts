@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
@@ -13,6 +13,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { USERS_SERVICE } from '../users/interfaces/users.service.interface';
 import { UsersService } from '../users/users.service';
 import { JwtStrategy } from './strategy/jwt.strategy';
+import { TokenRefreshMiddleware } from './middleware/token-refresh.middleware';
 
 @Module({
   imports: [
@@ -40,8 +41,12 @@ import { JwtStrategy } from './strategy/jwt.strategy';
     JwtStrategy,
   ],
 })
-export class AuthModule {
+export class AuthModule implements NestModule {
   constructor() {
     dotenv.config();
+  }
+
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(TokenRefreshMiddleware).forRoutes('*');
   }
 }
