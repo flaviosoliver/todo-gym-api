@@ -12,8 +12,8 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('docs')
+  @Get('documentation')
   async serveDocs(@Res() res: Response) {
-    return res.sendFile(path.join(__dirname, '../docs/index.html'));
+    return res.sendFile(path.join(__dirname, '../documentation/index.html'));
   }
 }

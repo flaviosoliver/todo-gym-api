@@ -19,8 +19,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "compodoc": "compodoc -p tsconfig.json --theme [material] -d docs/ -s",
-    "compodoc:serve": "compodoc -s -d docs/"
+    "compodoc": "compodoc -p tsconfig.json --theme material -c .compodocrc.json -s -o",
+    "compodoc:serve": "compodoc -s"
   },
   "dependencies": {
     "@nestjs/common": "^9.4.0",
