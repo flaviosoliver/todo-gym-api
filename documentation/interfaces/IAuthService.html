@@ -310,7 +310,7 @@ export const AUTH_SERVICE &#x3D; &#x27;AUTH_SERVICE&#x27;;
 export interface IAuthService {
   login: (email: string, password: string) &#x3D;&gt; Promise&lt;AuthDto&gt;;
   logout: (userId: string) &#x3D;&gt; void;
-  refreshTokens: (data: any) &#x3D;&gt; void;
+  refreshTokens: (data: any) &#x3D;&gt; Promise&lt;AuthDto&gt;;
   validateToken: (
     accessToken: string,
     refreshToken: string,

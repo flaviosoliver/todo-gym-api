@@ -385,7 +385,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;AuthDto&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -465,7 +465,7 @@ export class AuthController implements IAuthController {
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiOkResponse({ description: OK_200 })
-  async refreshToken(@Req() request: Request): Promise&lt;void&gt; {
+  async refreshToken(@Req() request: Request): Promise&lt;AuthDto&gt; {
     const data &#x3D; request.user;
     return await this.service.refreshTokens(data);
   }

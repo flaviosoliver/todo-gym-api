@@ -7,7 +7,7 @@ export const AUTH_SERVICE = 'AUTH_SERVICE';
 export interface IAuthService {
   login: (email: string, password: string) => Promise<AuthDto>;
   logout: (userId: string) => void;
-  refreshTokens: (data: any) => void;
+  refreshTokens: (data: any) => Promise<AuthDto>;
   validateToken: (
     accessToken: string,
     refreshToken: string,

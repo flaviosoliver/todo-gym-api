@@ -64,7 +64,7 @@ export class AuthController implements IAuthController {
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiOkResponse({ description: OK_200 })
-  async refreshToken(@Req() request: Request): Promise<void> {
+  async refreshToken(@Req() request: Request): Promise<AuthDto> {
     const data = request.user;
     return await this.service.refreshTokens(data);
   }
