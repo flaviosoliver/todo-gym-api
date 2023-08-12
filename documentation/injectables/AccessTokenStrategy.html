@@ -29,16 +29,19 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Controllers</li>
-  <li class="breadcrumb-item" >AppController</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >AccessTokenStrategy</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,10 +65,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app.controller.ts</code>
+            <code>src/modules/auth/strategy/access-token.strategy.ts</code>
         </p>
-
-
 
 
 
@@ -85,13 +86,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier"></span>
-                                <a href="#getHello" >getHello</a>
-                            </li>
-                            <li>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
-                                <a href="#serveDocs" >serveDocs</a>
+                                <a href="#validate" >validate</a>
                             </li>
                         </ul>
                     </td>
@@ -105,6 +101,55 @@
     </table>
 </section>
 
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(usersService: <a href="../interfaces/IUsersService.html" target="_self">IUsersService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/modules/auth/strategy/access-token.strategy.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>usersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IUsersService.html" target="_self" >IUsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
             <section data-compodoc="block-methods">
     
     <h3 id="methods">
@@ -114,80 +159,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getHello"></a>
+                    <a name="validate"></a>
                     <span class="name">
-                        <span class="modifier"></span>
-                        <span ><b>getHello</b></span>
-                        <a href="#getHello"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getHello()</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get()<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/app.controller.ts:11</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="serveDocs"></a>
-                    <span class="name">
-                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
-                        <span ><b>serveDocs</b></span>
-                        <a href="#serveDocs"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>validate</b></span>
+                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>serveDocs(res: Response)</code>
+                    <code>validate(payload: <a href="../interfaces/JwtPayload.html" target="_self">JwtPayload</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;documentation&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app.controller.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/modules/auth/strategy/access-token.strategy.ts:25</a></div>
                 </td>
             </tr>
 
@@ -208,9 +199,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>res</td>
+                                    <td>payload</td>
                                     <td>
-                                            <code>Response</code>
+                                                <code><a href="../interfaces/JwtPayload.html" target="_self" >JwtPayload</a></code>
                                     </td>
 
                                     <td>
@@ -225,7 +216,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>    <code>Promise&lt;UserDto&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -235,35 +226,49 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Res } from &#x27;@nestjs/common&#x27;;
-import { Response } from &#x27;express&#x27;;
-import { AppService } from &#x27;./app.service&#x27;;
-import * as path from &#x27;path&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
+import { Inject, Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
+import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
+import { JwtPayload } from &#x27;../interfaces/jwt-payload.interface&#x27;;
+import {
+  IUsersService,
+  USERS_SERVICE,
+} from &#x27;src/modules/users/interfaces/users.service.interface&#x27;;
+import { UserDto } from &#x27;src/modules/users/dtos/user.dto&#x27;;
 
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+export const ACCESS_TOKEN_STRATEGY &#x3D; &#x27;ACCESS_TOKEN_STRATEGY&#x27;;
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+@Injectable()
+export class AccessTokenStrategy extends PassportStrategy(Strategy, &#x27;jwt&#x27;) {
+  constructor(
+    @Inject(USERS_SERVICE)
+    private readonly usersService: IUsersService
+  ) {
+    super({
+      secretOrKey: process.env.JWT_SECRET,
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ignoreExpiration: false,
+    });
   }
-
-  @Get(&#x27;documentation&#x27;)
-  async serveDocs(@Res() res: Response) {
-    return res.sendFile(path.join(__dirname, &#x27;../documentation/index.html&#x27;));
+  async validate(payload: JwtPayload): Promise&lt;UserDto&gt; {
+    const { email } &#x3D; payload;
+    const user &#x3D; await this.usersService.getByEmail(email);
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+    return user;
   }
 }
 </code></pre>
     </div>
+
 </div>
-
-
-
 
 
 
@@ -302,8 +307,8 @@ export class AppController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AccessTokenStrategy.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
