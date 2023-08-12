@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, Req, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiInternalServerErrorResponse,
@@ -6,7 +6,10 @@ import {
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 import {
   AUTH_SERVICE,
   IAuthService,
@@ -31,6 +34,7 @@ export class AuthController implements IAuthController {
   ) {}
 
   @Post()
+  @UseGuards(AuthGuard('local'))
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -39,5 +43,29 @@ export class AuthController implements IAuthController {
   async login(@Body() doc: LoginDto): Promise<AuthDto> {
     const { email, password } = doc;
     return await this.service.login(email, password);
+  }
+
+  @Post('logout')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async logout(@Req() request: Request): Promise<void> {
+    const userId = request.user?.id;
+    return this.service.logout(userId);
+  }
+
+  @Post('refreshtoken')
+  @UseGuards(AuthGuard('jwt-refresh'))
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async refreshToken(@Req() request: Request): Promise<void> {
+    const data = request.user;
+    return await this.service.refreshTokens(data);
   }
 }
