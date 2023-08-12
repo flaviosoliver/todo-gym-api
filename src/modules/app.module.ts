@@ -18,11 +18,11 @@ import { AppService } from '../app.service';
       useFactory: async (configService: ConfigService) => {
         const localConnection = configService.get<string>('MONGO_LOCAL');
         const atlasConnection = configService.get<string>('MONGO_ATLAS');
-        const isLocal = process.env.ENVIRONMENT_LOCAL ?? false;
+        const isLocal = configService.get<string>('ENVIRONMENT_LOCAL') ?? false;
         return {
           uri: isLocal
-            ? `${localConnection}/${process.env.MONGO_DB}`
-            : `${atlasConnection}/${process.env.MONGO_DB}`,
+            ? `${localConnection}/${configService.get<string>('MONGO_DB')}`
+            : `${atlasConnection}/${configService.get<string>('MONGO_DB')}`,
         };
       },
       inject: [ConfigService],

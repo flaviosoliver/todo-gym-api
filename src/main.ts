@@ -43,6 +43,7 @@ async function bootstrap() {
       swaggerInfos.contact.email
     )
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
 
   SwaggerModule.setup('swagger', app, document);
