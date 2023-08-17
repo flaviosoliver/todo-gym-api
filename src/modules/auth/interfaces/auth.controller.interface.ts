@@ -5,5 +5,6 @@ export const AUTH_CONTROLLER = 'AUTH_CONTROLLER';
 
 export interface IAuthController {
   login: (doc: LoginDto) => Promise<AuthDto>;
-  logout(request: Request): Promise<void>;
+  logout: (request: Request) => Promise<void>;
+  refreshToken: (data: AuthDto) => Promise<AuthDto>;
 }

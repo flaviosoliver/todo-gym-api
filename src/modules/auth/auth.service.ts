@@ -18,7 +18,6 @@ import {
 } from './interfaces/auth.repository.interface';
 import { AuthDto } from './dtos/dtos';
 import { IAuthService } from './interfaces/auth.service.interface';
-import { JwtPayload } from './interfaces/jwt-payload.interface';
 import { comparePasswords } from './utils/credentials.utils';
 import { User } from '../users/user.model';
 
@@ -102,28 +101,32 @@ export class AuthService implements IAuthService {
     }
   }
 
-  async refreshTokens(data: any): Promise<AuthDto> {
+  async refreshTokens(data: AuthDto): Promise<AuthDto> {
     try {
-      const doc = await this.repository.getByRefreshToken(data.refreshToken);
+      const doc = await this.repository.getByRefreshToken(
+        data.refreshToken.refreshToken
+      );
 
       if (!doc) {
-        throw new NotFoundException(`Token ${data.refreshToken} not found`);
+        throw new NotFoundException(
+          `Token ${data.refreshToken.refreshToken} not found`
+        );
       }
 
       const newAccessToken = await this.generateAccessToken(
-        data.sub,
+        data.userId,
         data.email
       );
 
       const newRefreshToken = await this.generateRefreshToken(
-        data.sub,
+        data.userId,
         data.email
       );
 
       const decodedRefreshToken = await this.decodeToken(newAccessToken);
 
       const authDocument = new AuthDto();
-      authDocument.userId = data.sub;
+      authDocument.userId = data.userId;
       authDocument.email = data.email;
       authDocument.accessToken = newAccessToken;
       authDocument.refreshToken = {
@@ -131,7 +134,10 @@ export class AuthService implements IAuthService {
         expiresIn: decodedRefreshToken.exp,
       };
 
-      await this.repository.saveNewAccessToken(data.refreshToken, authDocument);
+      await this.repository.saveNewAccessToken(
+        data.refreshToken.refreshToken,
+        authDocument
+      );
       return authDocument;
     } catch (error) {
       this.logger.error(error);
@@ -184,36 +190,6 @@ export class AuthService implements IAuthService {
       }
     );
     return refreshToken;
-  }
-
-  async validateToken(
-    accessToken: string,
-    refreshToken: string,
-    payload: JwtPayload
-  ) {
-    const getAccessToken = await this.repository.getByAccessToken(accessToken);
-
-    if (!getAccessToken.accessToken) {
-      throw new UnauthorizedException('Unregistered AccessToken');
-    }
-
-    const isMatch = getAccessToken.refreshToken.refreshToken === refreshToken;
-
-    if (!isMatch) {
-      throw new UnauthorizedException('Unregistered AccessToken');
-    }
-
-    const validDate =
-      getAccessToken.refreshToken.expiresIn <
-      Math.floor(new Date().getTime() / 1000);
-
-    if (!validDate) {
-      throw new BadRequestException('Invalid Refresh Token');
-    }
-
-    if (isMatch && validDate) {
-      return await this.refreshTokens(refreshToken);
-    }
   }
 
   unixTimestamp() {
