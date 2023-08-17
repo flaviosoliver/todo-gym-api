@@ -36,6 +36,7 @@ import {
 } from '../shared/utils/http-response-status.utils';
 import { User } from './user.model';
 import { ShapeHistoryDto, UserDto, CreateUserDto } from './dtos/dtos';
+import { AccessTokenGuard } from '../auth/guard/access-token.guard';
 
 @Controller('users')
 @ApiTags('users')
@@ -45,8 +46,8 @@ export class UsersController implements IUsersController {
     private readonly service: IUsersService
   ) {}
 
+  @UseGuards(AccessTokenGuard)
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -68,8 +69,8 @@ export class UsersController implements IUsersController {
     return await this.service.create(user);
   }
 
+  @UseGuards(AccessTokenGuard)
   @Get('email')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -84,8 +85,8 @@ export class UsersController implements IUsersController {
     return user;
   }
 
+  @UseGuards(AccessTokenGuard)
   @Get(':id')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -100,8 +101,8 @@ export class UsersController implements IUsersController {
     return user;
   }
 
+  @UseGuards(AccessTokenGuard)
   @Patch(':id/update')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -111,8 +112,8 @@ export class UsersController implements IUsersController {
     return await this.service.update(id, user);
   }
 
+  @UseGuards(AccessTokenGuard)
   @Patch(':id/shape-update')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -125,8 +126,8 @@ export class UsersController implements IUsersController {
     return await this.service.updateShape(id, shape);
   }
 
+  @UseGuards(AccessTokenGuard)
   @Patch(':id/enable')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -136,8 +137,8 @@ export class UsersController implements IUsersController {
     return await this.service.enable(id);
   }
 
+  @UseGuards(AccessTokenGuard)
   @Patch(':id/disable')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
