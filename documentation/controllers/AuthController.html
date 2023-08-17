@@ -98,6 +98,7 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
                                 <a href="#login" >login</a>
                             </li>
@@ -153,6 +154,7 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
+                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>login</b></span>
                         <a href="#login"><span class="icon ion-ios-link"></span></a>
@@ -170,14 +172,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@UseGuards(undefined)<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: UserDto})<br /></code>
+                    <code>@Public()<br />@UseGuards(LocalAuthGuard)<br />@Post(&#x27;login&#x27;)<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: UserDto})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/modules/auth/auth.controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/modules/auth/auth.controller.ts:48</a></div>
                 </td>
             </tr>
 
@@ -255,14 +257,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;logout&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                    <code>@UseGuards(AccessTokenGuard)<br />@Post(&#x27;logout&#x27;)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/modules/auth/auth.controller.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/modules/auth/auth.controller.ts:60</a></div>
                 </td>
             </tr>
 
@@ -332,7 +334,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>refreshToken(request: Request)</code>
+                    <code>refreshToken(data: <a href="../classes/AuthDto.html" target="_self">AuthDto</a>)</code>
                 </td>
             </tr>
 
@@ -340,14 +342,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;refreshtoken&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                    <code>@UseGuards(RefreshTokenGuard)<br />@Post(&#x27;refreshtoken&#x27;)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/modules/auth/auth.controller.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/modules/auth/auth.controller.ts:72</a></div>
                 </td>
             </tr>
 
@@ -368,9 +370,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>request</td>
+                                    <td>data</td>
                                     <td>
-                                            <code>Request</code>
+                                                <code><a href="../classes/AuthDto.html" target="_self" >AuthDto</a></code>
                                     </td>
 
                                     <td>
@@ -425,6 +427,10 @@ import {
 } from &#x27;../shared/utils/http-response-status.utils&#x27;;
 import { UserDto } from &#x27;../users/dtos/dtos&#x27;;
 import { AuthDto, LoginDto } from &#x27;./dtos/dtos&#x27;;
+import { Public } from &#x27;./decorator/public.decorator&#x27;;
+import { AccessTokenGuard } from &#x27;./guard/access-token.guard&#x27;;
+import { RefreshTokenGuard } from &#x27;./guard/refresh-token.guard&#x27;;
+import { LocalAuthGuard } from &#x27;./guard/local-auth.guard&#x27;;
 
 @Controller(&#x27;auth&#x27;)
 @ApiTags(&#x27;auth&#x27;)
@@ -434,8 +440,9 @@ export class AuthController implements IAuthController {
     private readonly service: IAuthService
   ) {}
 
-  @Post()
-  @UseGuards(AuthGuard(&#x27;local&#x27;))
+  @Public()
+  @UseGuards(LocalAuthGuard)
+  @Post(&#x27;login&#x27;)
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -446,8 +453,8 @@ export class AuthController implements IAuthController {
     return await this.service.login(email, password);
   }
 
+  @UseGuards(AccessTokenGuard)
   @Post(&#x27;logout&#x27;)
-  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -458,15 +465,14 @@ export class AuthController implements IAuthController {
     return this.service.logout(userId);
   }
 
+  @UseGuards(RefreshTokenGuard)
   @Post(&#x27;refreshtoken&#x27;)
-  @UseGuards(AuthGuard(&#x27;jwt-refresh&#x27;))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
   @ApiOkResponse({ description: OK_200 })
-  async refreshToken(@Req() request: Request): Promise&lt;AuthDto&gt; {
-    const data &#x3D; request.user;
+  async refreshToken(@Body() data: AuthDto): Promise&lt;AuthDto&gt; {
     return await this.service.refreshTokens(data);
   }
 }
