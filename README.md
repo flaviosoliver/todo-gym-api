@@ -11,7 +11,7 @@ Desenvolvida com TypeScript em [NodeJS](https://nodejs.org/) com o framework [Ne
 ### Modelagem de Banco de Dados
 
 <div align="center">
-  <img src="https://i.postimg.cc/25ndVDPd/to-do-gym-diagram.png">
+  <img src="https://i.postimg.cc/59Drv4z4/to-do-gym-drawio.png">
 </div>
 
 Acesse [Draw IO](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=to-do_gym#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1INebgsRbgjSd2onzwfBrgx-lUyiCDaGn%26export%3Ddownload)
@@ -46,11 +46,32 @@ Desenho de Fluxos: Miro
 
 ## Instalação
 
+Faça um clone do projeto em seu ambiente local
+
+```bash
+# clone
+$ git clone https://github.com/flaviosoliver/todo-gym-api.git
+```
+
+Instale as dependências necessárias
+
 ```bash
 npm install
 ```
 
 ## Para executar o projeto
+
+Crie em seu ambiente local, na raiz do diretório do projeto um arquivo `.env` e adicione as seguintes variáveis nele:
+
+```yml
+MONGO_LOCAL='mongodb://127.0.0.1:27017'
+ENVIRONMENT_LOCAL='development'
+PORT=3000
+JWT_SECRET='password'
+JWT_REFRESH_SECRET='password'
+```
+
+Execute o projeto no modo desejado
 
 ```bash
 # development
@@ -63,7 +84,17 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Executar via Docker
+
+\*Em breve: Implementação futura
+
+```bash
+docker-compose up -d --build
+```
+
 ## Testes
+
+\*Em breve: Implementação futura
 
 ```bash
 # unit tests

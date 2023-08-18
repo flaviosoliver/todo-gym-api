@@ -42,7 +42,7 @@ Uma aplicação web para controle de treinos, rotinas, evolução física e musc
 Desenvolvida com TypeScript em <a href="https://nodejs.org/">NodeJS</a> com o framework <a href="https://github.com/nestjs/nest">Nest</a>.</p>
 <h3>Modelagem de Banco de Dados</h3>
 <div align="center">
-  <img src="https://i.postimg.cc/25ndVDPd/to-do-gym-diagram.png">
+  <img src="https://i.postimg.cc/59Drv4z4/to-do-gym-drawio.png">
 </div>
 
 <p>Acesse <a href="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=to-do_gym#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1INebgsRbgjSd2onzwfBrgx-lUyiCDaGn%26export%3Ddownload">Draw IO</a></p>
@@ -67,7 +67,16 @@ Documentação Modular Estática: Compodoc<br />
 Diagramação Banco de Dados: Draw IO
 Desenho de Fluxos: Miro</p>
 <h2>Instalação</h2>
+<p>Faça um clone do projeto em seu ambiente local</p>
+<div><pre class="line-numbers"><code class="language-bash"># clone
+$ git clone https://github.com/flaviosoliver/todo-gym-api.git</code></pre></div><p>Instale as dependências necessárias</p>
 <div><pre class="line-numbers"><code class="language-bash">npm install</code></pre></div><h2>Para executar o projeto</h2>
+<p>Crie em seu ambiente local, na raiz do diretório do projeto um arquivo <code>.env</code> e adicione as seguintes variáveis nele:</p>
+<div><pre class="line-numbers"><code class="language-yml">MONGO_LOCAL=&#39;mongodb://127.0.0.1:27017&#39;
+ENVIRONMENT_LOCAL=&#39;development&#39;
+PORT=3000
+JWT_SECRET=&#39;password&#39;
+JWT_REFRESH_SECRET=&#39;password&#39;</code></pre></div><p>Execute o projeto no modo desejado</p>
 <div><pre class="line-numbers"><code class="language-bash"># development
 $ npm run start
 
@@ -75,7 +84,10 @@ $ npm run start
 $ npm run start:dev
 
 # production mode
-$ npm run start:prod</code></pre></div><h2>Testes</h2>
+$ npm run start:prod</code></pre></div><h2>Executar via Docker</h2>
+<p>*Em breve: Implementação futura</p>
+<div><pre class="line-numbers"><code class="language-bash">docker-compose up -d --build</code></pre></div><h2>Testes</h2>
+<p>*Em breve: Implementação futura</p>
 <div><pre class="line-numbers"><code class="language-bash"># unit tests
 $ npm run test
 
