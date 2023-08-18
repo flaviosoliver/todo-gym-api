@@ -37,8 +37,10 @@ import {
 import { Exercise } from './exercise.model';
 import { ExerciseDto, CreateExerciseDto } from './dtos/dtos';
 import { ParamsDto } from '../shared/dtos/params.dto';
+import { AccessTokenGuard } from '../auth/guard/access-token.guard';
 
 @Controller('exercises')
+@UseGuards(AccessTokenGuard)
 @ApiTags('exercises')
 export class ExercisesController implements IExercisesController {
   constructor(
@@ -47,7 +49,6 @@ export class ExercisesController implements IExercisesController {
   ) {}
 
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -59,7 +60,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Get('search')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -75,7 +75,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -91,7 +90,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Post()
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -104,7 +102,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Patch(':id/update')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })

@@ -5,8 +5,10 @@ import {
   IsJWT,
   IsMongoId,
   IsNotEmpty,
+  IsObject,
   IsString,
 } from 'class-validator';
+import { RefreshTokenDto } from './refresh-token.dto';
 
 export class AuthDto {
   @ApiProperty()
@@ -21,7 +23,7 @@ export class AuthDto {
   @IsNotEmpty()
   @IsJWT()
   @IsString()
-  token: string;
+  accessToken: string;
 
   @ApiProperty()
   @IsDefined()
@@ -29,4 +31,8 @@ export class AuthDto {
   @IsString()
   @IsEmail()
   email: string;
+
+  @ApiProperty()
+  @IsObject()
+  refreshToken: RefreshTokenDto;
 }

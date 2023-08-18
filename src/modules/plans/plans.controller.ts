@@ -40,8 +40,10 @@ import {
 import { ParamsDto } from '../shared/dtos/params.dto';
 import { TrainingDto } from '../shared/dtos/training.dto';
 import { IPlansController } from './interfaces/plans.controller.interface';
+import { AccessTokenGuard } from '../auth/guard/access-token.guard';
 
 @Controller('plans')
+@UseGuards(AccessTokenGuard)
 @ApiTags('plans')
 export class PlansController implements IPlansController {
   constructor(
@@ -50,7 +52,6 @@ export class PlansController implements IPlansController {
   ) {}
 
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -63,7 +64,6 @@ export class PlansController implements IPlansController {
   }
 
   @Get('search')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -84,7 +84,6 @@ export class PlansController implements IPlansController {
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -100,7 +99,6 @@ export class PlansController implements IPlansController {
   }
 
   @Post()
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -118,7 +116,6 @@ export class PlansController implements IPlansController {
   }
 
   @Patch(':id/update')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -134,7 +131,6 @@ export class PlansController implements IPlansController {
   }
 
   @Patch(':id/updatetraining')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -150,7 +146,6 @@ export class PlansController implements IPlansController {
   }
 
   @Patch(':id/doneexercise')
-  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })

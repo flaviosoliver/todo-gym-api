@@ -39,6 +39,10 @@ export class User {
   @ApiProperty({ description: 'User shape history data', type: [ShapeHistory] })
   @Prop({ type: [ShapeHistorySchema], required: true })
   shape: ShapeHistory[];
+
+  @ApiProperty({ description: 'User avatar' })
+  @Prop({ type: String, required: false })
+  avatar?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -36,7 +36,8 @@ export class UsersService implements IUsersService {
     try {
       const user = await this.repository.getById(id);
       if (user != null || user != undefined) {
-        return mapUser(user);
+        const userDto = mapUser(user);
+        return userDto;
       } else {
         throw new NotFoundException(`Id ${id} not found`);
       }

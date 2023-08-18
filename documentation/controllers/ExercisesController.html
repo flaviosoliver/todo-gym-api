@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -98,12 +99,10 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
                                 <a href="#create" >create</a>
                             </li>
                             <li>
-                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
@@ -122,7 +121,6 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
                                 <a href="#getAll" >getAll</a>
                             </li>
@@ -134,12 +132,10 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
                                 <a href="#getById" >getById</a>
                             </li>
                             <li>
-                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
@@ -180,7 +176,6 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
-                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>create</b></span>
                         <a href="#create"><span class="icon ion-ios-link"></span></a>
@@ -198,14 +193,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: CREATED_201, type: undefined})<br />@ApiBody({type: CreateExerciseDto})<br /></code>
+                    <code>@Post()<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: CREATED_201, type: undefined})<br />@ApiBody({type: CreateExerciseDto})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:100</a></div>
                 </td>
             </tr>
 
@@ -266,7 +261,6 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
-                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>findByParams</b></span>
                         <a href="#findByParams"><span class="icon ion-ios-link"></span></a>
@@ -284,7 +278,7 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;search&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                    <code>@Get(&#x27;search&#x27;)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
                 </td>
             </tr>
 
@@ -352,7 +346,6 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
-                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>getAll</b></span>
                         <a href="#getAll"><span class="icon ion-ios-link"></span></a>
@@ -370,14 +363,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                    <code>@Get()<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:58</a></div>
                 </td>
             </tr>
 
@@ -406,7 +399,6 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
-                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>getById</b></span>
                         <a href="#getById"><span class="icon ion-ios-link"></span></a>
@@ -424,14 +416,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;:id&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
+                    <code>@Get(&#x27;:id&#x27;)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: undefined})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:84</a></div>
                 </td>
             </tr>
 
@@ -491,7 +483,6 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
-                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>update</b></span>
                         <a href="#update"><span class="icon ion-ios-link"></span></a>
@@ -509,14 +500,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;:id/update&#x27;)<br />@UseGuards(undefined)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                    <code>@Patch(&#x27;:id/update&#x27;)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/modules/exercises/exercises.controller.ts:110</a></div>
                 </td>
             </tr>
 
@@ -619,8 +610,10 @@ import {
 import { Exercise } from &#x27;./exercise.model&#x27;;
 import { ExerciseDto, CreateExerciseDto } from &#x27;./dtos/dtos&#x27;;
 import { ParamsDto } from &#x27;../shared/dtos/params.dto&#x27;;
+import { AccessTokenGuard } from &#x27;../auth/guard/access-token.guard&#x27;;
 
 @Controller(&#x27;exercises&#x27;)
+@UseGuards(AccessTokenGuard)
 @ApiTags(&#x27;exercises&#x27;)
 export class ExercisesController implements IExercisesController {
   constructor(
@@ -629,7 +622,6 @@ export class ExercisesController implements IExercisesController {
   ) {}
 
   @Get()
-  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -641,7 +633,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Get(&#x27;search&#x27;)
-  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -657,7 +648,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Get(&#x27;:id&#x27;)
-  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -673,7 +663,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Post()
-  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
@@ -686,7 +675,6 @@ export class ExercisesController implements IExercisesController {
   }
 
   @Patch(&#x27;:id/update&#x27;)
-  @UseGuards(AuthGuard(&#x27;jwt&#x27;))
   @ApiBearerAuth()
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })

@@ -11,5 +11,6 @@ export const mapUser = (user: User): UserDto => {
     birthDate: user.birthDate,
     active: user.active,
     shape: user.shape,
+    avatar: user.avatar ? user.avatar : '',
   };
 };

@@ -12,7 +12,15 @@ import { Auth, AuthSchema } from './auth.model';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { USERS_SERVICE } from '../users/interfaces/users.service.interface';
 import { UsersService } from '../users/users.service';
-import { JwtStrategy } from './strategy/jwt.strategy';
+import {
+  ACCESS_TOKEN_STRATEGY,
+  AccessTokenStrategy,
+} from './strategy/access-token.strategy';
+import {
+  REFRESH_TOKEN_STRATEGY,
+  RefreshTokenStrategy,
+} from './strategy/refresh-token.strategy';
+import { LOCAL_STRATEGY, LocalStrategy } from './strategy/local.strategy';
 
 @Module({
   imports: [
@@ -31,14 +39,21 @@ import { JwtStrategy } from './strategy/jwt.strategy';
       inject: [ConfigService],
     }),
     UsersModule,
+    ConfigModule,
   ],
-  controllers: [AuthController],
   providers: [
     { useClass: AuthService, provide: AUTH_SERVICE },
     { useClass: AuthRepository, provide: AUTH_REPOSITORY },
     { useClass: UsersService, provide: USERS_SERVICE },
-    JwtStrategy,
+    { useClass: LocalStrategy, provide: LOCAL_STRATEGY },
+    { useClass: AccessTokenStrategy, provide: ACCESS_TOKEN_STRATEGY },
+    {
+      useClass: RefreshTokenStrategy,
+      provide: REFRESH_TOKEN_STRATEGY,
+    },
   ],
+  controllers: [AuthController],
+  exports: [AUTH_SERVICE, AUTH_REPOSITORY],
 })
 export class AuthModule {
   constructor() {

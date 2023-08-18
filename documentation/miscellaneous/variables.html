@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -61,6 +62,9 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#ACCESS_TOKEN_STRATEGY" title="src/modules/auth/strategy/access-token.strategy.ts" ><b>ACCESS_TOKEN_STRATEGY</b>&nbsp;&nbsp;&nbsp;(src/.../access-token.strategy.ts)</a>
+                        </li>
+                        <li>
                             <a href="#AUTH_CONTROLLER" title="src/modules/auth/interfaces/auth.controller.interface.ts" ><b>AUTH_CONTROLLER</b>&nbsp;&nbsp;&nbsp;(src/.../auth.controller.interface.ts)</a>
                         </li>
                         <li>
@@ -85,6 +89,9 @@
                             <a href="#CREATED_201" title="src/modules/shared/utils/http-response-status.utils.ts" ><b>CREATED_201</b>&nbsp;&nbsp;&nbsp;(src/.../http-response-status.utils.ts)</a>
                         </li>
                         <li>
+                            <a href="#exerciseDataPipeline" title="src/modules/plans/pipelines/exercise-data.pipeline.ts" ><b>exerciseDataPipeline</b>&nbsp;&nbsp;&nbsp;(src/.../exercise-data.pipeline.ts)</a>
+                        </li>
+                        <li>
                             <a href="#EXERCISES_CONTROLLER" title="src/modules/exercises/interfaces/exercises.controller.interface.ts" ><b>EXERCISES_CONTROLLER</b>&nbsp;&nbsp;&nbsp;(src/.../exercises.controller.interface.ts)</a>
                         </li>
                         <li>
@@ -95,6 +102,12 @@
                         </li>
                         <li>
                             <a href="#ExerciseSchema" title="src/modules/exercises/exercise.model.ts" ><b>ExerciseSchema</b>&nbsp;&nbsp;&nbsp;(src/.../exercise.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#IS_PUBLIC_KEY" title="src/modules/auth/decorator/public.decorator.ts" ><b>IS_PUBLIC_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../public.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LOCAL_STRATEGY" title="src/modules/auth/strategy/local.strategy.ts" ><b>LOCAL_STRATEGY</b>&nbsp;&nbsp;&nbsp;(src/.../local.strategy.ts)</a>
                         </li>
                         <li>
                             <a href="#mapExercise" title="src/modules/exercises/utils/exercise.mapper.ts" ><b>mapExercise</b>&nbsp;&nbsp;&nbsp;(src/.../exercise.mapper.ts)</a>
@@ -130,6 +143,15 @@
                             <a href="#PlanSchema" title="src/modules/plans/plan.model.ts" ><b>PlanSchema</b>&nbsp;&nbsp;&nbsp;(src/.../plan.model.ts)</a>
                         </li>
                         <li>
+                            <a href="#Public" title="src/modules/auth/decorator/public.decorator.ts" ><b>Public</b>&nbsp;&nbsp;&nbsp;(src/.../public.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#REFRESH_TOKEN_STRATEGY" title="src/modules/auth/strategy/refresh-token.strategy.ts" ><b>REFRESH_TOKEN_STRATEGY</b>&nbsp;&nbsp;&nbsp;(src/.../refresh-token.strategy.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RefreshTokenSchema" title="src/modules/auth/refresh-token.model.ts" ><b>RefreshTokenSchema</b>&nbsp;&nbsp;&nbsp;(src/.../refresh-token.model.ts)</a>
+                        </li>
+                        <li>
                             <a href="#RoutineSchema" title="src/modules/routines/routine.model.ts" ><b>RoutineSchema</b>&nbsp;&nbsp;&nbsp;(src/.../routine.model.ts)</a>
                         </li>
                         <li>
@@ -163,6 +185,35 @@
     </table>
 </section>
 
+    <h3>src/modules/auth/strategy/access-token.strategy.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ACCESS_TOKEN_STRATEGY"></a>
+                    <span class="name">
+                        <span ><b>ACCESS_TOKEN_STRATEGY</b></span>
+                        <a href="#ACCESS_TOKEN_STRATEGY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;ACCESS_TOKEN_STRATEGY&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/modules/auth/interfaces/auth.controller.interface.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -527,6 +578,126 @@
         </tbody>
     </table>
 </section>
+    <h3>src/modules/plans/pipelines/exercise-data.pipeline.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exerciseDataPipeline"></a>
+                    <span class="name">
+                        <span ><b>exerciseDataPipeline</b></span>
+                        <a href="#exerciseDataPipeline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(field: string, value: string): any &#x3D;&gt; [
+  {
+    $match: {
+      [field]: new mongoose.Types.ObjectId(value),
+    },
+  },
+  {
+    $unwind: &#x27;$training&#x27;,
+  },
+  {
+    $lookup: {
+      from: &#x27;exercises&#x27;,
+      localField: &#x27;training.exerciseId&#x27;,
+      foreignField: &#x27;_id&#x27;,
+      as: &#x27;exerciseDetails&#x27;,
+    },
+  },
+  {
+    $unwind: &#x27;$exerciseDetails&#x27;,
+  },
+  {
+    $project: {
+      _id: 1,
+      name: 1,
+      focusMuscle: 1,
+      userId: 1,
+      training: {
+        exerciseId: &#x27;$exerciseDetails._id&#x27;,
+        series: &#x27;$training.series&#x27;,
+        repetitions: &#x27;$training.repetitions&#x27;,
+        load: &#x27;$training.load&#x27;,
+        done: &#x27;$training.done&#x27;,
+        createdAt: &#x27;$training.createdAt&#x27;,
+        updatedAt: &#x27;$training.updatedAt&#x27;,
+        exerciseName: &#x27;$exerciseDetails.name&#x27;,
+        exerciseFocusMuscle: &#x27;$exerciseDetails.focusMuscle&#x27;,
+        exerciseImage: &#x27;$exerciseDetails.image&#x27;,
+        exerciseVideo: &#x27;$exerciseDetails.video&#x27;,
+        notes: {
+          $concat: [&#x27;$training.notes&#x27;, &#x27;\n&#x27;, &#x27;$exerciseDetails.notes&#x27;],
+        },
+      },
+    },
+  },
+  {
+    $group: {
+      _id: &#x27;$_id&#x27;,
+      name: {
+        $first: &#x27;$name&#x27;,
+      },
+      focusMuscle: {
+        $first: &#x27;$focusMuscle&#x27;,
+      },
+      userId: {
+        $first: &#x27;$userId&#x27;,
+      },
+      training: {
+        $push: &#x27;$training&#x27;,
+      },
+      exerciseDetails: {
+        $push: &#x27;$exerciseDetails&#x27;,
+      },
+    },
+  },
+  {
+    $project: {
+      _id: 1,
+      name: 1,
+      focusMuscle: 1,
+      userId: 1,
+      training: {
+        $map: {
+          input: &#x27;$training&#x27;,
+          as: &#x27;t&#x27;,
+          in: {
+            $mergeObjects: [
+              &#x27;$$t&#x27;,
+              {
+                $arrayElemAt: [
+                  {
+                    $filter: {
+                      input: &#x27;$exerciseDetails&#x27;,
+                      as: &#x27;e&#x27;,
+                      cond: {
+                        $eq: [&#x27;$$e._id&#x27;, &#x27;$$t.exerciseId&#x27;],
+                      },
+                    },
+                  },
+                  0,
+                ],
+              },
+            ],
+          },
+        },
+      },
+    },
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/modules/exercises/interfaces/exercises.controller.interface.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -630,6 +801,84 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>SchemaFactory.createForClass(Exercise)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/modules/auth/decorator/public.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IS_PUBLIC_KEY"></a>
+                    <span class="name">
+                        <span ><b>IS_PUBLIC_KEY</b></span>
+                        <a href="#IS_PUBLIC_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;isPublic&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Public"></a>
+                    <span class="name">
+                        <span ><b>Public</b></span>
+                        <a href="#Public"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; SetMetadata(IS_PUBLIC_KEY, true)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/modules/auth/strategy/local.strategy.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LOCAL_STRATEGY"></a>
+                    <span class="name">
+                        <span ><b>LOCAL_STRATEGY</b></span>
+                        <a href="#LOCAL_STRATEGY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;LOCAL_STRATEGY&#x27;</code>
                     </td>
                 </tr>
 
@@ -759,6 +1008,7 @@
     birthDate: user.birthDate,
     active: user.active,
     shape: user.shape,
+    avatar: user.avatar ? user.avatar : &#x27;&#x27;,
   };
 }</code>
                     </td>
@@ -871,6 +1121,58 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>SchemaFactory.createForClass(Plan)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/modules/auth/strategy/refresh-token.strategy.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REFRESH_TOKEN_STRATEGY"></a>
+                    <span class="name">
+                        <span ><b>REFRESH_TOKEN_STRATEGY</b></span>
+                        <a href="#REFRESH_TOKEN_STRATEGY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;REFRESH_TOKEN_STRATEGY&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/modules/auth/refresh-token.model.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RefreshTokenSchema"></a>
+                    <span class="name">
+                        <span ><b>RefreshTokenSchema</b></span>
+                        <a href="#RefreshTokenSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>SchemaFactory.createForClass(RefreshToken)</code>
                     </td>
                 </tr>
 

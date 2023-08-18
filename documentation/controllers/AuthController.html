@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -96,8 +97,32 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
                                 <a href="#login" >login</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#refreshToken" >refreshToken</a>
                             </li>
                         </ul>
                     </td>
@@ -128,6 +153,8 @@
                         <span class="modifier"></span>
                         <span class="modifier"></span>
                         <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
                         <span class="modifier">Async</span>
                         <span ><b>login</b></span>
                         <a href="#login"><span class="icon ion-ios-link"></span></a>
@@ -145,14 +172,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: UserDto})<br /></code>
+                    <code>@Public()<br />@UseGuards(LocalAuthGuard)<br />@Post(&#x27;login&#x27;)<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiInternalServerErrorResponse({description: SERVER_ERROR_500})<br />@ApiOkResponse({description: OK_200, type: UserDto})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/modules/auth/auth.controller.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/modules/auth/auth.controller.ts:48</a></div>
                 </td>
             </tr>
 
@@ -200,11 +227,181 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>logout(request: Request)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseGuards(AccessTokenGuard)<br />@Post(&#x27;logout&#x27;)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/modules/auth/auth.controller.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>request</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshToken"></a>
+                    <span class="name">
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier"></span>
+                        <span class="modifier">Async</span>
+                        <span ><b>refreshToken</b></span>
+                        <a href="#refreshToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshToken(data: <a href="../classes/AuthDto.html" target="_self">AuthDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseGuards(RefreshTokenGuard)<br />@Post(&#x27;refreshtoken&#x27;)<br />@ApiBearerAuth()<br />@ApiUnauthorizedResponse({description: UNAUTHORIZED_401})<br />@ApiBadRequestResponse({description: BAD_REQUEST_400})<br />@ApiNotFoundResponse({description: NOT_FOUND_404})<br />@ApiOkResponse({description: OK_200})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/modules/auth/auth.controller.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../classes/AuthDto.html" target="_self" >AuthDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;AuthDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Inject, Post } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Inject, Post, Req, UseGuards } from &#x27;@nestjs/common&#x27;;
 import {
   ApiBadRequestResponse,
   ApiInternalServerErrorResponse,
@@ -212,7 +409,10 @@ import {
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse,
+  ApiBearerAuth,
 } from &#x27;@nestjs/swagger&#x27;;
+import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
+import { Request } from &#x27;express&#x27;;
 import {
   AUTH_SERVICE,
   IAuthService,
@@ -227,6 +427,10 @@ import {
 } from &#x27;../shared/utils/http-response-status.utils&#x27;;
 import { UserDto } from &#x27;../users/dtos/dtos&#x27;;
 import { AuthDto, LoginDto } from &#x27;./dtos/dtos&#x27;;
+import { Public } from &#x27;./decorator/public.decorator&#x27;;
+import { AccessTokenGuard } from &#x27;./guard/access-token.guard&#x27;;
+import { RefreshTokenGuard } from &#x27;./guard/refresh-token.guard&#x27;;
+import { LocalAuthGuard } from &#x27;./guard/local-auth.guard&#x27;;
 
 @Controller(&#x27;auth&#x27;)
 @ApiTags(&#x27;auth&#x27;)
@@ -236,7 +440,9 @@ export class AuthController implements IAuthController {
     private readonly service: IAuthService
   ) {}
 
-  @Post()
+  @Public()
+  @UseGuards(LocalAuthGuard)
+  @Post(&#x27;login&#x27;)
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -245,6 +451,29 @@ export class AuthController implements IAuthController {
   async login(@Body() doc: LoginDto): Promise&lt;AuthDto&gt; {
     const { email, password } &#x3D; doc;
     return await this.service.login(email, password);
+  }
+
+  @UseGuards(AccessTokenGuard)
+  @Post(&#x27;logout&#x27;)
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async logout(@Req() request: Request): Promise&lt;void&gt; {
+    const userId &#x3D; request.user?.id;
+    return this.service.logout(userId);
+  }
+
+  @UseGuards(RefreshTokenGuard)
+  @Post(&#x27;refreshtoken&#x27;)
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async refreshToken(@Body() data: AuthDto): Promise&lt;AuthDto&gt; {
+    return await this.service.refreshTokens(data);
   }
 }
 </code></pre>

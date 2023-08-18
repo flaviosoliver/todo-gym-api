@@ -8,8 +8,10 @@ import {
 } from 'src/modules/users/interfaces/users.service.interface';
 import { UserDto } from 'src/modules/users/dtos/user.dto';
 
+export const ACCESS_TOKEN_STRATEGY = 'ACCESS_TOKEN_STRATEGY';
+
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
+export class AccessTokenStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor(
     @Inject(USERS_SERVICE)
     private readonly usersService: IUsersService

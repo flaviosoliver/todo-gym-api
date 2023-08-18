@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -143,7 +144,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/modules/plans/plans.repository.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/modules/plans/plans.repository.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -208,8 +209,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:54</a></div>
                 </td>
             </tr>
 
@@ -303,8 +304,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:38</a></div>
                 </td>
             </tr>
 
@@ -374,8 +375,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:34</a></div>
                 </td>
             </tr>
 
@@ -445,8 +446,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:18</a></div>
                 </td>
             </tr>
 
@@ -516,8 +517,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:26</a></div>
                 </td>
             </tr>
 
@@ -587,8 +588,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:50</a></div>
                 </td>
             </tr>
 
@@ -658,8 +659,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:46</a></div>
                 </td>
             </tr>
 
@@ -729,8 +730,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:42</a></div>
                 </td>
             </tr>
 
@@ -812,8 +813,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/modules/plans/plans.repository.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/modules/plans/plans.repository.ts:72</a></div>
                 </td>
             </tr>
 
@@ -875,6 +876,7 @@ import { PlanDto, CreatePlanDto } from &#x27;./dtos/dtos&#x27;;
 import { IPlansRepository } from &#x27;./interfaces/plans.repository.interface&#x27;;
 import { ParamsDto } from &#x27;../shared/dtos/params.dto&#x27;;
 import { TrainingDto } from &#x27;../shared/dtos/training.dto&#x27;;
+import { exerciseDataPipeline } from &#x27;./pipelines/exercise-data.pipeline&#x27;;
 
 @Injectable()
 export class PlansRepository implements IPlansRepository {
@@ -884,11 +886,19 @@ export class PlansRepository implements IPlansRepository {
   ) {}
 
   async getAll(userId: string): Promise&lt;PlanDto[]&gt; {
-    return await this.model.find({ userId: userId });
+    const pipeline &#x3D; exerciseDataPipeline(&#x27;userId&#x27;, userId);
+    const result &#x3D; await this.model
+      .aggregate&lt;PlanDto&gt;(pipeline)
+      .allowDiskUse(false);
+    return result;
   }
 
   async getById(id: string): Promise&lt;PlanDto&gt; {
-    return await this.model.findById(id);
+    const pipeline &#x3D; exerciseDataPipeline(&#x27;_id&#x27;, id);
+    const result &#x3D; await this.model
+      .aggregate&lt;PlanDto&gt;(pipeline)
+      .allowDiskUse(false);
+    return result[0];
   }
 
   async findByParams(params: ParamsDto): Promise&lt;PlanDto[]&gt; {

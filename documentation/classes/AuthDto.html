@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -94,7 +95,7 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                <a href="#email" >email</a>
+                                <a href="#accessToken" >accessToken</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
@@ -102,7 +103,12 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                <a href="#token" >token</a>
+                                <a href="#email" >email</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#refreshToken" >refreshToken</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
@@ -131,6 +137,46 @@
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accessToken"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>accessToken</b></span>
+                        <a href="#accessToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />@IsDefined()<br />@IsNotEmpty()<br />@IsJWT()<br />@IsString()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/modules/auth/dtos/auth.dto.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -164,7 +210,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/modules/auth/dtos/auth.dto.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/modules/auth/dtos/auth.dto.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -175,21 +221,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="token"></a>
+                    <a name="refreshToken"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                            <span class="modifier"></span>
-                            <span class="modifier"></span>
-                            <span class="modifier"></span>
-                        <span ><b>token</b></span>
-                        <a href="#token"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>refreshToken</b></span>
+                        <a href="#refreshToken"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="../classes/RefreshTokenDto.html" target="_self" >RefreshTokenDto</a></code>
 
                     </td>
                 </tr>
@@ -198,13 +241,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsDefined()<br />@IsNotEmpty()<br />@IsJWT()<br />@IsString()<br />
+                            @ApiProperty()<br />@IsObject()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/modules/auth/dtos/auth.dto.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/modules/auth/dtos/auth.dto.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -244,7 +287,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/modules/auth/dtos/auth.dto.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/modules/auth/dtos/auth.dto.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -270,8 +313,10 @@ import {
   IsJWT,
   IsMongoId,
   IsNotEmpty,
+  IsObject,
   IsString,
 } from &#x27;class-validator&#x27;;
+import { RefreshTokenDto } from &#x27;./refresh-token.dto&#x27;;
 
 export class AuthDto {
   @ApiProperty()
@@ -286,7 +331,7 @@ export class AuthDto {
   @IsNotEmpty()
   @IsJWT()
   @IsString()
-  token: string;
+  accessToken: string;
 
   @ApiProperty()
   @IsDefined()
@@ -294,6 +339,10 @@ export class AuthDto {
   @IsString()
   @IsEmail()
   email: string;
+
+  @ApiProperty()
+  @IsObject()
+  refreshToken: RefreshTokenDto;
 }
 </code></pre>
     </div>

@@ -6,6 +6,7 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
+  IsUrl,
 } from 'class-validator';
 export class TrainingDto {
   @ApiProperty()
@@ -49,4 +50,22 @@ export class TrainingDto {
   @IsNotEmpty()
   @IsBoolean()
   done: boolean;
+
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  @IsDefined()
+  name?;
+
+  @ApiProperty()
+  @IsString()
+  @IsUrl()
+  @IsOptional()
+  image?;
+
+  @ApiProperty()
+  @IsString()
+  @IsUrl()
+  @IsOptional()
+  video?;
 }

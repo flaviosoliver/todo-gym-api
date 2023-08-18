@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -91,12 +92,17 @@
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                <a href="#accessToken" >accessToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#email" >email</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                <a href="#token" >token</a>
+                                <a href="#refreshToken" >refreshToken</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
@@ -121,6 +127,43 @@
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accessToken"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>accessToken</b></span>
+                        <a href="#accessToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({description: &#x27;User token&#x27;})<br />@Prop({type: String, required: true})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/modules/auth/auth.model.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -151,7 +194,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/modules/auth/auth.model.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/modules/auth/auth.model.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -162,18 +205,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="token"></a>
+                    <a name="refreshToken"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                        <span ><b>token</b></span>
-                        <a href="#token"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>refreshToken</b></span>
+                        <a href="#refreshToken"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="../classes/RefreshToken.html" target="_self" >RefreshToken</a></code>
 
                     </td>
                 </tr>
@@ -182,13 +225,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;User token&#x27;})<br />@Prop({type: String, required: true})<br />
+                            @ApiProperty({description: &#x27;User refresh token object&#x27;})<br />@Prop({type: RefreshTokenSchema, required: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/modules/auth/auth.model.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/modules/auth/auth.model.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -224,7 +267,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/modules/auth/auth.model.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/modules/auth/auth.model.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -246,6 +289,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Prop, Schema, SchemaFactory } from &#x27;@nestjs/mongoose&#x27;;
 import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { Document } from &#x27;mongoose&#x27;;
+import { RefreshToken, RefreshTokenSchema } from &#x27;./refresh-token.model&#x27;;
 
 export type AuthDocument &#x3D; Auth &amp; Document;
 
@@ -260,7 +304,11 @@ export class Auth {
 
   @ApiProperty({ description: &#x27;User token&#x27; })
   @Prop({ type: String, required: true })
-  token: string;
+  accessToken: string;
+
+  @ApiProperty({ description: &#x27;User refresh token object&#x27; })
+  @Prop({ type: RefreshTokenSchema, required: true })
+  refreshToken: RefreshToken;
 }
 
 export const AuthSchema &#x3D; SchemaFactory.createForClass(Auth);

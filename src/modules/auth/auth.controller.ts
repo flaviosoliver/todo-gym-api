@@ -1,4 +1,4 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Inject, Post, Req, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiInternalServerErrorResponse,
@@ -6,7 +6,10 @@ import {
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 import {
   AUTH_SERVICE,
   IAuthService,
@@ -21,6 +24,10 @@ import {
 } from '../shared/utils/http-response-status.utils';
 import { UserDto } from '../users/dtos/dtos';
 import { AuthDto, LoginDto } from './dtos/dtos';
+import { Public } from './decorator/public.decorator';
+import { AccessTokenGuard } from './guard/access-token.guard';
+import { RefreshTokenGuard } from './guard/refresh-token.guard';
+import { LocalAuthGuard } from './guard/local-auth.guard';
 
 @Controller('auth')
 @ApiTags('auth')
@@ -30,7 +37,9 @@ export class AuthController implements IAuthController {
     private readonly service: IAuthService
   ) {}
 
-  @Post()
+  @Public()
+  @UseGuards(LocalAuthGuard)
+  @Post('login')
   @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
   @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
   @ApiNotFoundResponse({ description: NOT_FOUND_404 })
@@ -39,5 +48,28 @@ export class AuthController implements IAuthController {
   async login(@Body() doc: LoginDto): Promise<AuthDto> {
     const { email, password } = doc;
     return await this.service.login(email, password);
+  }
+
+  @UseGuards(AccessTokenGuard)
+  @Post('logout')
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async logout(@Req() request: Request): Promise<void> {
+    const userId = request.user?.id;
+    return this.service.logout(userId);
+  }
+
+  @UseGuards(RefreshTokenGuard)
+  @Post('refreshtoken')
+  @ApiBearerAuth()
+  @ApiUnauthorizedResponse({ description: UNAUTHORIZED_401 })
+  @ApiBadRequestResponse({ description: BAD_REQUEST_400 })
+  @ApiNotFoundResponse({ description: NOT_FOUND_404 })
+  @ApiOkResponse({ description: OK_200 })
+  async refreshToken(@Body() data: AuthDto): Promise<AuthDto> {
+    return await this.service.refreshTokens(data);
   }
 }

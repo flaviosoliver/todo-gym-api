@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 import { Document } from 'mongoose';
+import { RefreshToken, RefreshTokenSchema } from './refresh-token.model';
 
 export type AuthDocument = Auth & Document;
 
@@ -15,7 +16,11 @@ export class Auth {
 
   @ApiProperty({ description: 'User token' })
   @Prop({ type: String, required: true })
-  token: string;
+  accessToken: string;
+
+  @ApiProperty({ description: 'User refresh token object' })
+  @Prop({ type: RefreshTokenSchema, required: true })
+  refreshToken: RefreshToken;
 }
 
 export const AuthSchema = SchemaFactory.createForClass(Auth);
