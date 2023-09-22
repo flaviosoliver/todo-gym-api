@@ -14,7 +14,6 @@ import {
 import { PlanDto, CreatePlanDto } from './dtos/dtos';
 import { mapPlan } from './utils/plan.mapper';
 import { ParamsDto } from '../shared/dtos/params.dto';
-import { buildParams } from '../shared/utils/build-params.utils';
 import { Training } from '../shared/models/training.model';
 import { TrainingDto } from '../shared/dtos/training.dto';
 
@@ -29,7 +28,8 @@ export class PlansService implements IPlansService {
 
   async getAll(userId: string): Promise<PlanDto[]> {
     try {
-      return await this.repository.getAll(userId);
+      const plan = await this.repository.getAll(userId);
+      return plan;
     } catch (error) {
       this.logger.error(error);
     }
@@ -51,10 +51,10 @@ export class PlansService implements IPlansService {
 
   async findByParams(params?: ParamsDto): Promise<PlanDto[]> {
     try {
-      const parameters = buildParams(params);
-      let plans = await this.repository.findByParams(parameters);
+      let plans = await this.repository.findByParams(params);
       if (plans && plans.length > 0) {
-        return plans.map((item) => mapPlan(item));
+        const mapper = plans.map((item) => mapPlan(item));
+        return mapper;
       } else {
         return (plans = []);
       }

@@ -38,7 +38,8 @@ export class ExercisesService implements IExercisesService {
       const parameters = buildParams(params);
       let exercises = await this.repository.findByParams(parameters);
       if (exercises && exercises.length > 0) {
-        return exercises.map((exe) => mapExercise(exe));
+        const mapper = exercises.map((exe) => mapExercise(exe));
+        return mapper;
       } else {
         return (exercises = []);
       }

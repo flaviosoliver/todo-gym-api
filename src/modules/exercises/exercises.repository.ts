@@ -18,7 +18,7 @@ export class ExercisesRepository implements IExercisesRepository {
   }
 
   async getAll(): Promise<ExerciseDto[]> {
-    return await this.model.find();
+    return await this.model.find().sort({ name: 1 });
   }
 
   async getById(id: string): Promise<ExerciseDto> {
@@ -26,7 +26,7 @@ export class ExercisesRepository implements IExercisesRepository {
   }
 
   async findByParams(params: ParamsDto): Promise<ExerciseDto[]> {
-    return await this.model.find(params);
+    return await this.model.find(params).sort({ name: 1 });
   }
 
   async update(id: string, exercise: ExerciseDto): Promise<void> {
