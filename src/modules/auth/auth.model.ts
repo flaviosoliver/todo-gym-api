@@ -24,3 +24,11 @@ export class Auth {
 }
 
 export const AuthSchema = SchemaFactory.createForClass(Auth);
+
+AuthSchema.virtual('id').get(function () {
+  return this._id.toHexString();
+});
+
+AuthSchema.set('toJSON', {
+  virtuals: true,
+});

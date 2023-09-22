@@ -39,3 +39,11 @@ export class Training {
 }
 
 export const TrainingSchema = SchemaFactory.createForClass(Training);
+
+TrainingSchema.virtual('id').get(function () {
+  return this._id.toHexString();
+});
+
+TrainingSchema.set('toJSON', {
+  virtuals: true,
+});

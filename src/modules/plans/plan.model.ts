@@ -39,3 +39,15 @@ export class Plan {
 }
 
 export const PlanSchema = SchemaFactory.createForClass(Plan);
+
+PlanSchema.virtual('id').get(function () {
+  return this._id.toHexString();
+});
+
+PlanSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transform: function (doc, ret) {
+    delete ret._id;
+  },
+});

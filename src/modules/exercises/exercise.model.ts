@@ -30,3 +30,11 @@ export class Exercise {
 }
 
 export const ExerciseSchema = SchemaFactory.createForClass(Exercise);
+
+ExerciseSchema.virtual('id').get(function () {
+  return this._id.toHexString();
+});
+
+ExerciseSchema.set('toJSON', {
+  virtuals: true,
+});
